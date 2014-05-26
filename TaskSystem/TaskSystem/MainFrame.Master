@@ -24,7 +24,7 @@
 
     <div class="menu">
     <asp:TreeView ID="TreeView1" runat="server" ImageSet="Arrows" Width="100%" 
-            ExpandDepth="0" Height="100%">
+            ExpandDepth="0" Height="100%" Font-Bold="True" Font-Italic="False" Font-Names="Arial" Font-Size="Medium" ForeColor="White" >
         <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
         <Nodes>
             <asp:TreeNode SelectAction="Expand" Text="Web编程" Value="Web编程">
@@ -40,9 +40,9 @@
         </Nodes>
         <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" 
             HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" 
-            BackColor="#CCFFCC" />
+            BackColor="#99CCFF" BorderColor="#99CCFF" />
         <ParentNodeStyle Font-Bold="False" />
-        <RootNodeStyle Font-Size="Larger" />
+        <RootNodeStyle Font-Size="Larger" BackColor="#99CCFF" BorderColor="#99CCFF" />
         <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" 
             HorizontalPadding="0px" VerticalPadding="0px" />
     </asp:TreeView>

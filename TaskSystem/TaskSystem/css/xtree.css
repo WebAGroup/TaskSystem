@@ -1,5 +1,11 @@
 .webfx-tree-container {
-	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; FONT: icon; PADDING-TOP: 0px; WHITE-SPACE: nowrap
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    FONT: icon;
+    PADDING-TOP: 0px;
+    WHITE-SPACE: normal;
 }
 .webfx-tree-item {
 	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; FONT: icon; COLOR: windowtext; PADDING-TOP: 0px; WHITE-SPACE: nowrap; HEIGHT: 16px
