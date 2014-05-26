@@ -1,0 +1,51 @@
+﻿body {
+}
+
+.logo
+{
+    width:100%;
+    height:100px;
+    background-color:#605512;
+}
+
+.content
+{
+    float:right;
+    width:79%;
+    height:400px;
+    margin-left:1px;
+}
+
+.menu
+{
+    background-image:images/MenuBackground.png;
+    width:20%;
+    position:absolute;
+    margin-top:0px;
+    margin-right:1px;
+    top: 122px;
+    height: 363px;
+    background-color:#c1d2f0;
+}
+
+.bottom
+{
+    border-width: 1px;
+    bottom:0px;
+    position:absolute;
+    width:100%;
+    background-color:#c11210;
+    height: 23px;
+}
+
+#welcome
+{
+    position:absolute;
+    top:90px;
+    right:15px;
+}
+
+#log_out
+{
+    padding-left:25px;
+}

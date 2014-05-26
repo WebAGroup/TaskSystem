@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainFrame.master.cs" Inherits="TaskSystem.MainFrame" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <link rel="stylesheet" href="css/Master.css" type="text/css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <img src="images/logo.png" class="logo" alt="logo"/><br />
+    <label id="welcome">欢迎XXX<a href="Login.aspx" id="log_out">注销</a></label>
+    <form id="form1" runat="server">
+
+    <div class="content">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+    <div class="menu">
+    <asp:TreeView ID="TreeView1" runat="server" ImageSet="Arrows" Width="100%" 
+            ExpandDepth="0" Height="100%">
+        <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+        <Nodes>
+            <asp:TreeNode SelectAction="Expand" Text="Web编程" Value="Web编程">
+                <asp:TreeNode Text="作业1" Value="作业1"></asp:TreeNode>
+                <asp:TreeNode Text="作业2" Value="作业2"></asp:TreeNode>
+            </asp:TreeNode>
+            <asp:TreeNode SelectAction="Expand" Text="团队项目开发" Value="团队项目开发">
+                <asp:TreeNode Text="作业1" Value="作业1"></asp:TreeNode>
+            </asp:TreeNode>
+            <asp:TreeNode SelectAction="Expand" Text="软件系统分析" Value="软件系统分析">
+                <asp:TreeNode Text="大作业" Value="大作业"></asp:TreeNode>
+            </asp:TreeNode>
+        </Nodes>
+        <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" 
+            HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" 
+            BackColor="#CCFFCC" />
+        <ParentNodeStyle Font-Bold="False" />
+        <RootNodeStyle Font-Size="Larger" />
+        <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" 
+            HorizontalPadding="0px" VerticalPadding="0px" />
+    </asp:TreeView>
+    </div>
+
+    </form>
+
+    <div class="bottom">
+        <center>Copyright 2014 Web编程A组</center>
+    </div>
+</body>
+</html>
