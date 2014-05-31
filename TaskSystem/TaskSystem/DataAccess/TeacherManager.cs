@@ -13,7 +13,7 @@ namespace TaskSystem.DataAccess
             var t = from s in da.Teacher
                     where s.username == name
                     select s;
-            return t.First();
+            return t.FirstOrDefault();
 
         }
 

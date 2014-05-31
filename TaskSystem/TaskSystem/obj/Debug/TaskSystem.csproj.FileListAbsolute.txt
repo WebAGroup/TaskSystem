@@ -23,3 +23,8 @@ C:\Users\WGC\Desktop\新建文件夹\TaskSystem\TaskSystem\bin\TaskSystem.pdb
 C:\Users\WGC\Desktop\新建文件夹\TaskSystem\TaskSystem\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\WGC\Desktop\新建文件夹\TaskSystem\TaskSystem\obj\Debug\TaskSystem.dll
 C:\Users\WGC\Desktop\新建文件夹\TaskSystem\TaskSystem\obj\Debug\TaskSystem.pdb
+F:\Github\TaskSystem\TaskSystem\TaskSystem\obj\Debug\ResolveAssemblyReference.cache
+F:\Github\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.dll
+F:\Github\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.pdb
+F:\Github\TaskSystem\TaskSystem\TaskSystem\bin\TaskSystem.dll
+F:\Github\TaskSystem\TaskSystem\TaskSystem\bin\TaskSystem.pdb

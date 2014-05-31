@@ -30,20 +30,17 @@ namespace TaskSystem.DataAccess
         public List<Course> GetCourseForStudent(String stuname)         //通过学生账号名，获取该学生课程的List
         {
             DataClassesDataContext da = new DataClassesDataContext();
-            var major = from s in da.Student
-                      where s.username == stuname
-                      select s.major;
-            var course_num = from s in da.Major_Course
-                         where s.major == (major.First())
+            var course_num = from s in da.Student_Course
+                         where s.student == stuname
                          select s.course;
-            var course = from s in da.Course
-                         where s.num == (course_num.First())
-                         select s;
-            StudentCourse = new List<Course>();
-            foreach (var n in course)
-            {
-                StudentCourse.Add(n);
-            }
+             StudentCourse = new List<Course>();
+             foreach (var c in course_num)
+             {
+                 var result = from s in da.Course
+                              where s.num == c
+                              select s;
+                 StudentCourse.AddRange(result);
+             }
             return StudentCourse;
         }
 
@@ -70,30 +67,30 @@ namespace TaskSystem.DataAccess
             return true;
         }
 
-        public bool AddMajorToCourse(String major, String course) // 为课程添加专业
+        public bool ChooseCourse(String stuname, String course_num)         //学生选课
         {
             DataClassesDataContext da = new DataClassesDataContext();
-            Major_Course mc = new Major_Course();
-            mc.course = course;
-            mc.major = major;
-            da.Major_Course.InsertOnSubmit(mc);
+            Student_Course sc = new Student_Course();
+            sc.course = course_num;
+            sc.student = stuname;
+            da.Student_Course.InsertOnSubmit(sc);
             da.SubmitChanges();
             return true;
-        }
 
+        }
         public bool DeleteCourse(Course course)         //删除课程
         {
             DataClassesDataContext da = new DataClassesDataContext();
             var c=from s in da.Course
                   where s.teacher==course.teacher && s.name==course.name
                   select s;
-            var cin = from s in da.Major_Course
+            var cin = from s in da.Student_Course
                       where s.course == c.First().num
                       select s;
             var ca = from s in da.Assignment
                      where s.course == c.First().num
                      select s;
-            da.Major_Course.DeleteAllOnSubmit(cin);
+            da.Student_Course.DeleteAllOnSubmit(cin);
             da.Assignment.DeleteAllOnSubmit(ca);
             da.Course.DeleteAllOnSubmit(c);
             da.SubmitChanges();

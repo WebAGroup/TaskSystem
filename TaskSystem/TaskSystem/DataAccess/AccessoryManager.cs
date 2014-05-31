@@ -11,6 +11,7 @@ namespace TaskSystem.DataAccess
         public bool Create(Accessory accessory)
         {
             DataClassesDataContext da = new DataClassesDataContext();
+         
             da.Accessory.InsertOnSubmit(accessory);
             da.SubmitChanges();
             return true;
@@ -23,7 +24,7 @@ namespace TaskSystem.DataAccess
                     where s.student == stu && s.assignment == assignment
                     select s;
 
-            return a.First();
+            return a.FirstOrDefault();
         }
     }
 }

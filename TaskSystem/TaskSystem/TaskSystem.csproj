@@ -91,6 +91,11 @@
     <Content Include="js\nicEdit.js" />
     <Content Include="js\RegJS.js" />
     <Content Include="Login.aspx" />
+    <Content Include="obj\Debug\TaskSystem.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\TaskSystem.dll" />
+    <Content Include="obj\Debug\TaskSystem.pdb" />
+    <Content Include="obj\Debug\TempPE\DataAccess.DataClasses.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\DataAccess.DataClasses1.designer.cs.dll" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -100,13 +105,22 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\DataClasses1.designer.cs">
+    <Compile Include="DataAccess\AccessoryManager.cs" />
+    <Compile Include="DataAccess\AnswerManager.cs" />
+    <Compile Include="DataAccess\AssignmentManager.cs" />
+    <Compile Include="DataAccess\CourseManager.cs" />
+    <Compile Include="DataAccess\DataBaseAccess.cs" />
+    <Compile Include="DataAccess\DataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\ProblemManager.cs" />
+    <Compile Include="DataAccess\StudentManager.cs" />
+    <Compile Include="DataAccess\TeacherManager.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -136,25 +150,36 @@
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainFrame.Master" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DataAccess\DataClasses.dbml.layout">
-      <DependentUpon>DataClasses.dbml</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="DataAccess\DataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\TaskSystem.csprojResolveAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="js\ICON_20.svg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataAccess\DataClasses.dbml.layout">
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
