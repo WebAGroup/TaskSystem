@@ -27,6 +27,15 @@ namespace TaskSystem.DataAccess
             return TeacherCourse;
         }
 
+        public Course GetOneCourse(String teachername, String coursename)         //通过老师账号名和课程名获得指定课程
+        {
+            DataClassesDataContext da = new DataClassesDataContext();
+            var c = from s in da.Course
+                    where s.teacher == teachername && s.name == coursename
+                    select s;
+            return c.FirstOrDefault();
+        }
+
         public List<Course> GetCourseForStudent(String stuname)         //通过学生账号名，获取该学生课程的List
         {
             DataClassesDataContext da = new DataClassesDataContext();

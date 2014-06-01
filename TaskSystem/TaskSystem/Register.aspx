@@ -15,11 +15,11 @@
 		<h1>用户注册</h1>
 	</div>
 	<div class="form-bak">
-		<form method="post" action="WebForm1.aspx" onsubmit="adaptValue();">
+		<form method="post" runat="Server" onsubmit="adaptValue();">
 			<div class="left">
 				<div class="line" id="line_account">
 					<div class="info">
-						<strong>邮箱</strong> <span class="tips">邮箱就是账号</span>
+						<strong>专业</strong> <span class="tips">学生或班主任填写</span>
 					</div>
 					<div class="input">
 						<input type="text" name="account" id="account"
@@ -77,9 +77,12 @@
 				<div>
 					已经拥有账号，<a href="Login.aspx">直接登录</a>
 				</div>
-				<div>
-					忘记密码，<a href="#">请联系管理员</a>
-				</div>
+				<div class="selectIdentity">
+					身份：
+                    <asp:RadioButton ID="student" Text="学生" runat="Server" GroupName="status"/>&nbsp;
+                    <asp:RadioButton ID="teacher" Text="教师" runat="Server" GroupName="status" 
+                        Checked="True"/>
+                </div>
 			</div>
 		</form>
 	</div>

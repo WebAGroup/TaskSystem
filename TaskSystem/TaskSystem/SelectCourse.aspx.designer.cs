@@ -10,60 +10,60 @@
 namespace TaskSystem {
     
     
-    public partial class MainFrame {
+    public partial class WebForm3 {
         
         /// <summary>
-        /// head 控件。
+        /// SelectTeachers 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.DropDownList SelectTeachers;
         
         /// <summary>
-        /// welcome 控件。
+        /// TeacherCourses 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label welcome;
+        protected global::System.Web.UI.WebControls.DropDownList TeacherCourses;
         
         /// <summary>
-        /// form1 控件。
+        /// LabelCourses 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label LabelCourses;
         
         /// <summary>
-        /// log_out 控件。
+        /// ViewCourses 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton log_out;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea ViewCourses;
         
         /// <summary>
-        /// ContentPlaceHolder1 控件。
+        /// submit 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button submit;
         
         /// <summary>
-        /// TreeView1 控件。
+        /// reset 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TreeView TreeView1;
+        protected global::System.Web.UI.WebControls.Button reset;
     }
 }

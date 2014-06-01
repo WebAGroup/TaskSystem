@@ -19,7 +19,7 @@ header_text
     padding-left:15px;
 }
 
-.Control1 #save
+.Control1 #export
 {
     margin-left:15px;
     margin-right:15px;
@@ -28,7 +28,7 @@ header_text
 .Control1 {
     margin-left: 35%;
 }
-.Control2 #save2
+.Control2 #export2
 {
     margin-left:15px;
     margin-right:15px;

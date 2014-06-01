@@ -17,11 +17,17 @@ public class AnswerManager
         var answer = from s in da.Answer
                      where s.student == student && s.problem == pro.First()
                      select s;
-        AnswerList = new List<Answer>();
-        foreach (var n in answer)
-            AnswerList.Add(n);
-        return AnswerList;
-
+        if (answer.First() == null)
+            return null;
+        else
+        {
+            AnswerList = new List<Answer>();
+            foreach (var n in answer)
+            {
+                AnswerList.Add(n);
+            }
+            return AnswerList;
+        }
 
     }
 
@@ -44,7 +50,7 @@ public class AnswerManager
             foreach (Answer answ in ans)
             {
                 answ.comment = a.comment;
-                answ.content = a.content;
+                answ.cont = a.cont;
                 answ.score = a.score;
             }
         }

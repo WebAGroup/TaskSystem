@@ -56,8 +56,9 @@ function lineState(name, state, msg) {
 }
 function v_account() {
     var account = $("#account").val();
-    if (!RegEmail.test(account)) {
-        lineState("account", "error", "邮箱格式不正确");
+    var status = document.getElementById("student");
+    if (account.length == 0 && status.checked) {
+        lineState("account", "error", "不得为空");
         flags[0] = false;
         enableSubmit(false);
     } else {

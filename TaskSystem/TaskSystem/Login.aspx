@@ -13,7 +13,7 @@
     </head>
     <body id="userlogin_body">
         <div></div>
-    <form action="WebForm1.aspx" runat="server" method="post">
+    <form id="login" name="login" action="?Action=Login" runat="server" method="post">
         <div id="user_login">
         <dl>
             <dd id="user_top">
@@ -56,7 +56,7 @@
  </li>
     <li class="user_main_r">
     <input class="IbtnEnterCssClass" id="IbtnEnter" style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
-    type="image" src="images/user_botton.gif" name="IbtnEnter"/> 
+    type="image" src="images/user_botton.gif" name="IbtnEnter" onclick="document.login.submit()"/> 
     </li>
   </ul>
     <dd id="user_bottom">

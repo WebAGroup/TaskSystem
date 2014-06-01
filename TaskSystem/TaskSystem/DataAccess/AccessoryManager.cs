@@ -11,7 +11,6 @@ namespace TaskSystem.DataAccess
         public bool Create(Accessory accessory)
         {
             DataClassesDataContext da = new DataClassesDataContext();
-         
             da.Accessory.InsertOnSubmit(accessory);
             da.SubmitChanges();
             return true;

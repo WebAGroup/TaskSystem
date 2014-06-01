@@ -162,6 +162,11 @@ input[type=submit]:disabled {
 	outline: 1px solid #f99;
 }
 
+.selectIdentity
+{
+    outline: 1px solid #f99;
+}
+
 #top h1 {
 	font-size: 30px;
 	line-height: 40px;

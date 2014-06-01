@@ -22,7 +22,7 @@ namespace TaskSystem.DataAccess
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DataSource")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="dbc23b1bbe25304f95bd0da33400cd3072")]
 	public partial class DataClassesDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -57,7 +57,7 @@ namespace TaskSystem.DataAccess
     #endregion
 		
 		public DataClassesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DataSourceConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["dbc23b1bbe25304f95bd0da33400cd3072ConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -353,7 +353,7 @@ namespace TaskSystem.DataAccess
 		
 		private int _problem;
 		
-		private string _content;
+		private string _cont;
 		
 		private System.Nullable<float> _score;
 		
@@ -371,8 +371,8 @@ namespace TaskSystem.DataAccess
     partial void OnstudentChanged();
     partial void OnproblemChanging(int value);
     partial void OnproblemChanged();
-    partial void OncontentChanging(string value);
-    partial void OncontentChanged();
+    partial void OncontChanging(string value);
+    partial void OncontChanged();
     partial void OnscoreChanging(System.Nullable<float> value);
     partial void OnscoreChanged();
     partial void OncommentChanging(string value);
@@ -434,22 +434,22 @@ namespace TaskSystem.DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_content", DbType="NVarChar(4000)")]
-		public string content
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cont", DbType="NVarChar(4000)")]
+		public string cont
 		{
 			get
 			{
-				return this._content;
+				return this._cont;
 			}
 			set
 			{
-				if ((this._content != value))
+				if ((this._cont != value))
 				{
-					this.OncontentChanging(value);
+					this.OncontChanging(value);
 					this.SendPropertyChanging();
-					this._content = value;
-					this.SendPropertyChanged("content");
-					this.OncontentChanged();
+					this._cont = value;
+					this.SendPropertyChanged("cont");
+					this.OncontChanged();
 				}
 			}
 		}

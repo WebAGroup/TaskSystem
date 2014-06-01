@@ -4,9 +4,6 @@
     background-repeat: no-repeat;
    }
 
-
-
-
 .logo {
     width: 100%;
     height: 100px;
@@ -52,9 +49,13 @@
     top: 90px;
     right: 15px;
     color: #FFFFFF;
+    right: 120px;
 }
 
-#log_out {
-    padding-left: 25px;
+#log_out 
+{
+    position: absolute;
+    top: 90px;
+    right: 25px;
     color: #FFFFFF;
 }
