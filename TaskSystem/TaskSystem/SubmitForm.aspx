@@ -36,7 +36,8 @@
  -->
     </div>
 
-    &nbsp;&nbsp;添加附件：<input type="file" runat="Server" id="file" name="file"/>
+    &nbsp;&nbsp;添加附件：<!-- <input type="file" runat="Server" id="file" name="file"/> -->
+    <asp:FileUpload ID="FileUpload2" runat="server" />
     <hr />
 <!-- 
     <asp:FileUpload ID="FileUpload1" runat="server" />

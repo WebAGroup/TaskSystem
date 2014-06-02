@@ -17,17 +17,24 @@ public class AnswerManager
         var answer = from s in da.Answer
                      where s.student == student && s.problem == pro.First()
                      select s;
-        if (answer.First() == null)
-            return null;
-        else
+        AnswerList = new List<Answer>();
+        foreach (var p in pro)
         {
-            AnswerList = new List<Answer>();
+            answer = from s in da.Answer
+                         where s.student == student && s.problem == p
+                         select s;
             foreach (var n in answer)
             {
                 AnswerList.Add(n);
             }
+        }
+
+        if ((answer.Count()) > 0)
+        {
             return AnswerList;
         }
+        else
+            return null;
 
     }
 

@@ -31,10 +31,10 @@ namespace TaskSystem
             //动态创建问题及回答区域
             ProblemList = ProblemMan.GetProblem(System.Int32.Parse(id));
             //加载上次答案
-            /*
+            
             AnswerList = AnswerMan.GetAnswerList(stu.username, System.Int32.Parse(id));
             accessory = AccessoryMan.GetAccessory(stu.username, System.Int32.Parse(id));
-             */
+             
             for (int i = 0; i < ProblemList.Count; i++)
             {
                 string pro = "<p>" + ProblemList[i].title + "</p>";
@@ -43,14 +43,13 @@ namespace TaskSystem
 
                 string an = "<p><textarea cols='120' rows='15' name='TA' id='TA" + i + "'></textarea></p>";
                 //加载已有答案
-                /*
-                if (string.IsNullOrEmpty(AnswerList[i].cont))
+                
+                if (AnswerList != null)
                 {
-                    an = "<p><textarea cols='120' rows='15' name='TA' id='TA" + i + "'>" + AnswerList[i] + "</textarea></p>";
+                    an = "<p><textarea cols='120' rows='15' name='TA' id='TA" + i + "'>" + AnswerList[i].cont + "</textarea></p>";
                     submitFlag = false;
                 }
-                */
-
+                
                 Control ct2 = ParseControl(an);
                 PlaceHolder1.Controls.Add(ct2);
             }
@@ -91,6 +90,10 @@ namespace TaskSystem
                 answer.problem = i + 1;
                 answer.score = (float)0.0;
                 answer.comment = "no comment";
+                if (AnswerList == null)
+                {
+                    AnswerList = new List<Answer>();
+                }
                 AnswerList.Add(answer);
             }
 
@@ -98,7 +101,12 @@ namespace TaskSystem
             {
                 AnswerMan.AddAnswer(AnswerList);
                 
-                string filePath = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+                //string filePath = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+                string filePath = FileUpload2.PostedFile.FileName;
+                if (accessory == null)
+                {
+                    accessory = new Accessory();
+                }
                 accessory.adress = filePath;
                 accessory.assignment = System.Int32.Parse(id);
                 accessory.student = stu.username;

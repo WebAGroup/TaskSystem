@@ -19,7 +19,7 @@
 			<div class="left">
 				<div class="line" id="line_account">
 					<div class="info">
-						<strong>专业</strong> <span class="tips">学生或班主任填写</span>
+						<strong>年级专业</strong> <span class="tips">学生或班主任填写</span>
 					</div>
 					<div class="input">
 						<input type="text" name="account" id="account"

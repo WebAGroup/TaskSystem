@@ -13,6 +13,15 @@ namespace TaskSystem {
     public partial class WebForm3 {
         
         /// <summary>
+        /// Label1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
         /// SelectTeachers 控件。
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace TaskSystem {
         protected global::System.Web.UI.WebControls.DropDownList SelectTeachers;
         
         /// <summary>
+        /// Label2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
         /// TeacherCourses 控件。
         /// </summary>
         /// <remarks>
@@ -29,15 +47,6 @@ namespace TaskSystem {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TeacherCourses;
-        
-        /// <summary>
-        /// LabelCourses 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelCourses;
         
         /// <summary>
         /// ViewCourses 控件。

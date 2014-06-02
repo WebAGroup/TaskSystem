@@ -25,11 +25,14 @@
     </div>
 
     <div class="menu">
-    <asp:TreeView ID="TreeView1" runat="server" ImageSet="Arrows" Width="100%" 
+    <asp:TreeView ID="TreeView1" runat="server" ImageSet="BulletedList4" Width="100%" 
             ExpandDepth="0" Height="100%" Font-Bold="True" Font-Italic="False" 
             Font-Names="Arial" Font-Size="Medium" ForeColor="White" 
             onselectednodechanged="TreeView1_SelectedNodeChanged1" >
-        <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+        <HoverNodeStyle Font-Underline="True" ForeColor="White" BorderStyle="Double" 
+            Font-Bold="True" Font-Overline="False" Font-Size="Larger" />
+        <LeafNodeStyle Font-Bold="False" Font-Overline="False" Font-Size="Larger" 
+            Font-Underline="True" />
         <Nodes>
             <asp:TreeNode SelectAction="Expand" Text="Web编程" Value="Web编程" Expanded="True">
                 <asp:TreeNode Text="作业1" Value="作业1" NavigateUrl="SubmitForm.aspx"></asp:TreeNode>
@@ -42,11 +45,12 @@
                 <asp:TreeNode Text="大作业" Value="大作业"></asp:TreeNode>
             </asp:TreeNode>
         </Nodes>
-        <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" 
+        <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="#0066FF" 
             HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" 
-            BackColor="#99CCFF" BorderColor="#99CCFF" />
+            BackColor="#99CCFF" BorderColor="#99CCFF" BorderStyle="Double" 
+            Font-Bold="False" Font-Italic="False" />
         <ParentNodeStyle Font-Bold="False" />
-        <RootNodeStyle Font-Size="Larger" BackColor="#99CCFF" BorderColor="#99CCFF" />
+        <RootNodeStyle Font-Size="Larger" Font-Bold="True" ForeColor="#0066FF" />
         <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" 
             HorizontalPadding="0px" VerticalPadding="0px" />
     </asp:TreeView>
