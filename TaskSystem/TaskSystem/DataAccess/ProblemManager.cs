@@ -40,6 +40,17 @@ namespace TaskSystem.DataAccess
             return true;
         }
 
+        public List<Problem> getAllProblem()                //得到所有问题
+        {
+            DataClassesDataContext da = new DataClassesDataContext();
+            var p = from s in da.Problem
+                    select s;
+            pro = new List<Problem>();
+            foreach (var n in p)
+                pro.Add(n);
+            return pro;
+        }
+
         public bool DeleteProblem(int pro_id)           //根据Problem的Id来删除作业
         {
             DataClassesDataContext da = new DataClassesDataContext();

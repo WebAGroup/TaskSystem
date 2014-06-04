@@ -62,6 +62,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddCourse.aspx" />
+    <Content Include="AllAssignment.aspx" />
+    <Content Include="Assign.aspx" />
+    <Content Include="Check.aspx" />
     <Content Include="css\Course_Select.css" />
     <Content Include="css\Default.css" />
     <Content Include="css\Homework_Submit.css" />
@@ -97,6 +101,7 @@
     <Content Include="obj\Debug\TaskSystem.pdb" />
     <Content Include="obj\Debug\TempPE\DataAccess.DataClasses.designer.cs.dll" />
     <Content Include="obj\Debug\TempPE\DataAccess.DataClasses1.designer.cs.dll" />
+    <Content Include="OneAssignment.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="SelectCourse.aspx" />
     <Content Include="StudentMainForm.aspx" />
@@ -110,6 +115,34 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCourse.aspx.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCourse.aspx.designer.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllAssignment.aspx.cs">
+      <DependentUpon>AllAssignment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllAssignment.aspx.designer.cs">
+      <DependentUpon>AllAssignment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assign.aspx.cs">
+      <DependentUpon>Assign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assign.aspx.designer.cs">
+      <DependentUpon>Assign.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Check.aspx.cs">
+      <DependentUpon>Check.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Check.aspx.designer.cs">
+      <DependentUpon>Check.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DataAccess\AccessoryManager.cs" />
     <Compile Include="DataAccess\AnswerManager.cs" />
     <Compile Include="DataAccess\AssignmentManager.cs" />
@@ -136,6 +169,13 @@
     </Compile>
     <Compile Include="MainFrame.Master.designer.cs">
       <DependentUpon>MainFrame.Master</DependentUpon>
+    </Compile>
+    <Compile Include="OneAssignment.aspx.cs">
+      <DependentUpon>OneAssignment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OneAssignment.aspx.designer.cs">
+      <DependentUpon>OneAssignment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">

@@ -46,4 +46,14 @@ public class AssignmentManager {
             ret.Add(n);
         return ret;
 	}
+    public List<Assignment> getAllAssignment()          //获得所有作业
+    {
+        DataClassesDataContext da = new DataClassesDataContext();
+        var p = from s in da.Assignment
+                select s;
+        List<Assignment> ret = new List<Assignment>();
+        foreach (var n in p)
+            ret.Add(n);
+        return ret;
+    }
 }

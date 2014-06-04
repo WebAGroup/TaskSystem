@@ -29,19 +29,31 @@ namespace TaskSystem
                             string UserPassword = Request.Form["TxtPassword"].ToString();
                             string Identity = Request.Form["DropExpiration"].ToString();
                             StudentManager Student = new StudentManager();
+                            TeacherManager Teacher = new TeacherManager();
 
                             if (Identity.Equals("student"))
                             {
                                 if (UserPassword != Student.GetStudent(UserName).passwd)
                                 {
                                     Response.Write("<Script Language=JavaScript>alert('密码或用户名错误，请重试！');</Script>");
-                                    //Response.Redirect("Login.aspx");
                                 }
                                 else
                                 {
                                     Session["student"] = Student.GetStudent(UserName);
                                     Response.Redirect("StudentMainForm.aspx");
-                                    //Response.Write("<Script Language=JavaScript>window.location.href='StudentMainForm.aspx';</Script>");
+                                }
+                            }
+
+                            else if (Identity.Equals("teacher"))
+                            {
+                                if (UserPassword != Teacher.GetTeacher(UserName).passwd)
+                                {
+                                    Response.Write("<Script Language=JavaScript>alert('密码或用户名错误，请重试！');</Script>");
+                                }
+                                else
+                                {
+                                    Session["teacher"] = Teacher.GetTeacher(UserName);
+                                    Response.Redirect("AddCourse.aspx");
                                 }
                             }
 

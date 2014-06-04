@@ -11,6 +11,7 @@ namespace TaskSystem
     public partial class MainFrame : System.Web.UI.MasterPage
     {
         Student stu = new Student();
+        Teacher tea = new Teacher();
         //bool firstNodeExpandFlag = false;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -22,11 +23,25 @@ namespace TaskSystem
             }
             else
             {
-                stu = (Student)Session["student"];
-                welcome.Text = "欢迎" + stu.username;
+                foreach (string str in Session.Keys)
+                {
+                    if (str.Equals("student"))
+                    {
+                        stu = (Student)Session["student"];
+                        welcome.Text = "欢迎" + stu.username;
+                        initTreeView();
+                    }
+                    else if (str.Equals("teacher"))
+                    {
+                        tea = (Teacher)Session["teacher"];
+                        welcome.Text = "欢迎您，" + tea.username;
+                        initTeacherTreeView();
+                    }
+                }
+                
             }
 
-            initTreeView();
+            
         }
 
         protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
@@ -38,6 +53,33 @@ namespace TaskSystem
         {
             Session.RemoveAll();
             Response.Redirect("Login.aspx");
+        }
+
+        protected void initTeacherTreeView()
+        {
+            CourseManager CourseMan = new CourseManager();
+            List<Course> CourseList = new List<Course>();
+            CourseList = CourseMan.GetCourseForTeacher(tea.username);
+
+            TreeView1.Nodes.Clear();
+            TreeNode mycourse = new TreeNode();
+            mycourse.Text = "我的课程";
+            mycourse.NavigateUrl = "AddCourse.aspx";
+
+            //设置TreeView的节点，未截止的课程
+            foreach (Course course in CourseList)
+            {
+                if (DateTime.Now < course.end_time)
+                {
+                    TreeNode node = new TreeNode();
+                    node.Text = course.name;
+                    node.NavigateUrl = "AllAssignment.aspx?Coursenum=" + course.num;
+                    mycourse.ChildNodes.Add(node);
+                }
+            }
+            TreeView1.Nodes.Add(mycourse);
+            TreeView1.ExpandAll();
+
         }
 
         protected void initTreeView()

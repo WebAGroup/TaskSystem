@@ -42,7 +42,21 @@ namespace TaskSystem
                         Response.Redirect("StudentMainForm.aspx");
                     }
 
+                    else if (Identity == teacher.ID)
+                    {
+                        TeacherManager TeacherMan = new TeacherManager();
+                        Teacher tea = new Teacher();
+                        tea.username = UserName;
+                        tea.passwd = UserPassword;
+                        tea.name = UserName;
+
+                        TeacherMan.AddTeacher(tea);
+                        Session["teacher"] = tea;
+                        Response.Redirect("AddCourse.aspx");
+                    }
+
                 }
+
             }
             catch (Exception ex)
             {
