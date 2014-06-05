@@ -22,6 +22,13 @@
                     SortExpression="id" />
                 <asp:BoundField DataField="title" HeaderText="title" ReadOnly="True" 
                     SortExpression="title" />
+                <asp:BoundField DataField="descrip" HeaderText="descrip" ReadOnly="True" 
+                    SortExpression="descrip" />
+                <asp:BoundField DataField="score" HeaderText="score" ReadOnly="True" 
+                    SortExpression="score" />
+                <asp:HyperLinkField DataNavigateUrlFields="id" 
+                    DataNavigateUrlFormatString="Check.aspx?student={0}" HeaderText="操作" 
+                    Text="批改" />
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -36,7 +43,12 @@
         </asp:GridView>
         <asp:LinqDataSource ID="LinqDataSource1" runat="server" 
             ContextTypeName="TaskSystem.DataAccess.DataClassesDataContext" 
-            EntityTypeName="" Select="new (id, title)" TableName="Assignment">
+            EntityTypeName="" Select="new (id, title, descrip, score, Answer)" 
+            TableName="Problem" Where="assignment == @assignment">
+            <WhereParameters>
+                <asp:QueryStringParameter Name="assignment" QueryStringField="Assignmentnum" 
+                    Type="Int32" />
+            </WhereParameters>
         </asp:LinqDataSource>
     </p>
 </asp:Content>

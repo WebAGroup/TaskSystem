@@ -2,21 +2,24 @@
 <asp:Content ID="Content1" runat="server" 
     contentplaceholderid="ContentPlaceHolder1">
     <p style="text-align: right; color: #0066FF">
-        所有作业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        [
+        <asp:Label ID="allassigncoursenameLabel" runat="server" 
+            style="font-weight: 700" Text="Label"></asp:Label>
+        ]所有作业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         <asp:LinkButton ID="AddAssignmentLinkButton" runat="server" 
             onclick="AddAssignmentLinkButton_Click">添加作业</asp:LinkButton>
     </p>
     <p style="text-align: center; color: #0066FF">
         <asp:GridView ID="AllAssignmentGridView" runat="server" CellPadding="4" ForeColor="#333333" 
             GridLines="None" AllowPaging="True" AutoGenerateColumns="False" 
-            DataSourceID="LinqDataSource1" 
-            onselectedindexchanged="AllAssignmentGridView_SelectedIndexChanged" >
+            DataSourceID="LinqDataSource1"  >
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" 
+                <asp:BoundField DataField="id" HeaderText="次数" ReadOnly="True" 
                     SortExpression="id" />
-                <asp:BoundField DataField="title" HeaderText="title" ReadOnly="True" 
-                    SortExpression="title" />
+                <asp:HyperLinkField DataNavigateUrlFields="id" 
+                    DataNavigateUrlFormatString="OneAssignment.aspx?Assignmentnum={0}" 
+                    DataTextField="title" HeaderText="标题" />
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -31,7 +34,12 @@
         </asp:GridView>
         <asp:LinqDataSource ID="LinqDataSource1" runat="server" 
             ContextTypeName="TaskSystem.DataAccess.DataClassesDataContext" 
-            EntityTypeName="" Select="new (id, title)" TableName="Assignment">
+            EntityTypeName="" Select="new (id, title)" TableName="Assignment" 
+            Where="course == @course">
+            <WhereParameters>
+                <asp:QueryStringParameter Name="course" QueryStringField="Coursenum" 
+                    Type="String" />
+            </WhereParameters>
         </asp:LinqDataSource>
     </p>
 </asp:Content>

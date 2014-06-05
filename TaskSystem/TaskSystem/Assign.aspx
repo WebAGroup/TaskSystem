@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="AssignTitlePanel" runat="server" style="margin-left: 250px" 
         Width="394px" BorderColor="#CCCCCC" BorderStyle="Outset">
+        课程：<asp:Label ID="coursenameLabel" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
     作业标题：<asp:TextBox ID="assigntitleTextBox" runat="server"></asp:TextBox>
         <br />
         <br />
@@ -22,6 +25,14 @@
             <asp:Button ID="UpdatePro" runat="server" Text="修改" 
             onclick="UpdatePro_Click" />&nbsp;&nbsp;&nbsp;
         <asp:Button ID="DeletePro" runat="server" Text="删除" onclick="DeletePro_Click" />
+        <br />
+         <p style="text-align: center; color: #0066FF">
+        <asp:Label ID="assignmentcourseLabel" runat="server" 
+                 style="text-align: center; font-weight: 700;" Text="Label"></asp:Label>
+        </p>
+        <p style="text-align: left; color: #0066FF">
+        <asp:Label ID="assignmentLabel" runat="server" style="text-align: center" Text="Label"></asp:Label>
+        </p>
         <br />
         <asp:RadioButtonList ID="SelectProRadioButtonList" runat="server" 
             ondatabinding="Page_Load">
@@ -67,6 +78,7 @@
         <asp:Button ID="ProblemsSaveButton" runat="server" Text="保存" 
             onclick="ProblemsSaveButton_Click" />
         &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="ProblemsQuitButton" runat="server" Text="取消" />
+        <asp:Button ID="ProblemsQuitButton" runat="server" Text="取消" 
+            onclick="ProblemsQuitButton_Click" />
     </asp:Panel>
 </asp:Content>

@@ -26,19 +26,6 @@ namespace TaskSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["assignment"] = OneAssignment;
-        }
-        protected void AssignQuitButton_Click(object sender, EventArgs e)
-        {
-            AssignTitlePanel.Visible = false;
-        }
-
-        //添加一次作业
-        protected void AssignSureButton_Click(object sender, EventArgs e)
-        {
-            AssignTitlePanel.Visible = false;
-            ProblemsPanel.Visible = true;
-
             //获取课程信息
             tea = (Teacher)Session["teacher"];
 
@@ -52,6 +39,26 @@ namespace TaskSystem
                 }
             }
 
+            coursenameLabel.Text = course.name;
+            //Session["assignment"] = OneAssignment;
+        }
+        protected void AssignQuitButton_Click(object sender, EventArgs e)
+        {
+            AssignTitlePanel.Visible = false;
+        }
+
+        //添加一次作业
+        protected void AssignSureButton_Click(object sender, EventArgs e)
+        {
+            AssignTitlePanel.Visible = false;
+            ProblemsPanel.Visible = true;
+
+            string date = datelineTextBox.Text + " 23:59:59";
+
+            //显示课程信息
+            assignmentcourseLabel.Text = "课程：" + course.name;
+            assignmentLabel.Text = "<br>标题：" + assigntitleTextBox.Text + "<br>截止日期：" + date + "<br>说明：" + assigndescriTextBox.Text;
+
             //获取课程assignment数
             assignments = assignMan.getAssignment(course.num);
             int assignmentid = assignMan.getAllAssignment().Count + 1;
@@ -61,7 +68,6 @@ namespace TaskSystem
             assignment.title = assigntitleTextBox.Text;
             assignment.descrip = assigndescriTextBox.Text;
             assignment.start_time = DateTime.Now;
-            string date = datelineTextBox.Text + " 23:59:59";
             assignment.end_time = DateTime.Parse(date);
             assignment.course = course.num;
             assignment.major = "11SE";
@@ -108,7 +114,7 @@ namespace TaskSystem
             SelectProRadioButtonList.Items.Clear();
             for (int i = 0; i != problems.Count; i++)
             {
-                SelectProRadioButtonList.Items.Add(new ListItem(problems[i].id + "." + problems[i].title + "<br>" + problems[i].descrip, i.ToString()));
+                SelectProRadioButtonList.Items.Add(new ListItem(i+1 + "." + problems[i].title + "<br>" + problems[i].descrip, i.ToString()));
             }
         }
 
@@ -129,7 +135,7 @@ namespace TaskSystem
 
             for (int i = 0; i != problems.Count; i++)
             {
-                SelectProRadioButtonList.Items.Add(new ListItem(problems[i].id + "." + problems[i].title + "<br>" + problems[i].descrip, i.ToString()));
+                SelectProRadioButtonList.Items.Add(new ListItem(i + 1 + "." + problems[i].title + "<br>" + problems[i].descrip, i.ToString()));
             }
         }
 
@@ -149,7 +155,7 @@ namespace TaskSystem
 
             for (int i = 0; i != problems.Count; i++)
             {
-                SelectProRadioButtonList.Items.Add(new ListItem(problems[i].id + "." + problems[i].title + "<br>" + problems[i].descrip, i.ToString()));
+                SelectProRadioButtonList.Items.Add(new ListItem(i + 1 + "." + problems[i].title + "<br>" + problems[i].descrip, i.ToString()));
             }
         }
 
@@ -164,7 +170,12 @@ namespace TaskSystem
                 assignMan.create(OneAssignment[assign], assign);
             }
             problems.Clear();
-            Response.Redirect("AddCourse.aspx");
+            Response.Redirect("AllAssignment.aspx?Coursenum=" + Request.QueryString["Coursenum"]);
+        }
+
+        protected void ProblemsQuitButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AllAssignment.aspx?Coursenum=" + Request.QueryString["Coursenum"]);
         }
     }
 }
