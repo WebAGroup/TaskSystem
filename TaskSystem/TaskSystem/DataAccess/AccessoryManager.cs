@@ -7,7 +7,6 @@ namespace TaskSystem.DataAccess
 {
     public class AccessoryManager
     {
-       
         public bool Create(Accessory accessory)
         {
             DataClassesDataContext da = new DataClassesDataContext();

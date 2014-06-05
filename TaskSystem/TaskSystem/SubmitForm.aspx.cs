@@ -46,7 +46,7 @@ namespace TaskSystem
                 
                 if (AnswerList != null)
                 {
-                    an = "<p><textarea cols='120' rows='15' name='TA' id='TA" + i + "'>" + AnswerList[i].cont + "</textarea></p>";
+                    an = "<p><textarea cols='120' rows='15' name='TA' id='TA" + i + "'>" + AnswerList[i].content + "</textarea></p>";
                     submitFlag = false;
                 }
                 
@@ -85,7 +85,7 @@ namespace TaskSystem
                 Answer answer = new Answer();
                 //Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "myJS2", "content=document.getElementById('TA" + i + "').value", true);
                 //Response.Write("<Script Language=JavaScript>content=document.getElementById('TA" + i + "').value;</Script>");
-                answer.cont = content[i];
+                answer.content = content[i];
                 answer.student = stu.username;
                 answer.problem = i + 1;
                 answer.score = (float)0.0;
@@ -152,9 +152,9 @@ namespace TaskSystem
                 }
                 answer.content = content[i];
 */
-                answer.cont = content[i];
+                answer.content = content[i];
                 AnswerList.Add(answer);
-                str += AnswerList[i].cont + "\r\n";
+                str += AnswerList[i].content + "\r\n";
             }
 
             //写入

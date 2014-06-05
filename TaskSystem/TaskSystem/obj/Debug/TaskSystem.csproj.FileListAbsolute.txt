@@ -38,3 +38,8 @@ F:\ASP.NET\TaskSystem\TaskSystem\TaskSystem\bin\TaskSystem.pdb
 F:\ASP.NET\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.csprojResolveAssemblyReference.cache
 F:\ASP.NET\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.dll
 F:\ASP.NET\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.pdb
+G:\Works\GitHub\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.csprojResolveAssemblyReference.cache
+G:\Works\GitHub\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.dll
+G:\Works\GitHub\TaskSystem\TaskSystem\TaskSystem\bin\TaskSystem.dll
+G:\Works\GitHub\TaskSystem\TaskSystem\TaskSystem\bin\TaskSystem.pdb
+G:\Works\GitHub\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.pdb

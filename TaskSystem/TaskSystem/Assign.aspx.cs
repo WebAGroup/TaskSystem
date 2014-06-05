@@ -17,7 +17,7 @@ namespace TaskSystem
         static List<Problem> problems = new List<Problem>();
 
         AssignmentManager assignMan = new AssignmentManager();
-        Assignment assignment = new Assignment();
+        static Assignment assignment = new Assignment();
         List<Assignment> assignments = new List<Assignment>();
 
         Teacher tea = new Teacher();
@@ -59,22 +59,16 @@ namespace TaskSystem
             assignmentcourseLabel.Text = "课程：" + course.name;
             assignmentLabel.Text = "<br>标题：" + assigntitleTextBox.Text + "<br>截止日期：" + date + "<br>说明：" + assigndescriTextBox.Text;
 
-            //获取课程assignment数
-            assignments = assignMan.getAssignment(course.num);
-            int assignmentid = assignMan.getAllAssignment().Count + 1;
-
             //添加assignment
-            assignment.id = assignmentid;
             assignment.title = assigntitleTextBox.Text;
             assignment.descrip = assigndescriTextBox.Text;
             assignment.start_time = DateTime.Now;
             assignment.end_time = DateTime.Parse(date);
             assignment.course = course.num;
             assignment.major = "11SE";
+            AssignmentManager am = new AssignmentManager();
+            am.create(assignment);
 
-            OneAssignment.Clear();
-            OneAssignment.Add(assignment, null);
-            Session["assignment"] = OneAssignment;
         }
 
         protected void AddPro_Click(object sender, EventArgs e)
@@ -90,24 +84,17 @@ namespace TaskSystem
         //添加该作业的一个问题
         protected void AProSureButton_Click(object sender, EventArgs e)
         {
+            ProblemManager pm = new ProblemManager();
             AProPanel.Visible = false;
 
             Problem Apro = new Problem();
-            Apro.id = ProMan.getAllProblem().Count + 1 + problems.Count;
             Apro.title = AProtitleTextBox.Text;
             Apro.descrip = AProdescriTextBox.Text;
-
-            OneAssignment = (Dictionary<Assignment, List<Problem>>)Session["assignment"];
-            foreach (Assignment assign in OneAssignment.Keys)
-            {
-                assignment = assign;
-            }
-
+            Apro.score = 1.0f;
             Apro.assignment = assignment.id;
+
+            pm.create(Apro);
             problems.Add(Apro);
-            OneAssignment.Clear();
-            OneAssignment.Add(assignment, problems);
-            Session["assignment"] = OneAssignment;
 
             //SelectProRadioButtonList.Items.Clear();
 
@@ -164,11 +151,6 @@ namespace TaskSystem
         {
             //assignMan.create(problems, assignment);
             //assignMan.update(problems, assignment);
-            OneAssignment = (Dictionary<Assignment, List<Problem>>)Session["assignment"];
-            foreach (Assignment assign in OneAssignment.Keys)
-            {
-                assignMan.create(OneAssignment[assign], assign);
-            }
             problems.Clear();
             Response.Redirect("AllAssignment.aspx?Coursenum=" + Request.QueryString["Coursenum"]);
         }

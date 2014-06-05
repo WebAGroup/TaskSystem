@@ -9,11 +9,19 @@
       <Association Name="Student_Accessory" Member="Student1" ThisKey="student" OtherKey="username" Type="Student" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Teacher" Member="Teacher">
+    <Type Name="Teacher">
+      <Column Name="username" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="passwd" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Teacher_Course" Member="Course" ThisKey="username" OtherKey="teacher" Type="Course" />
+    </Type>
+  </Table>
   <Table Name="dbo.Answer" Member="Answer">
     <Type Name="Answer">
       <Column Name="student" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="problem" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="cont" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="content" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
       <Column Name="score" Type="System.Single" DbType="Real" CanBeNull="true" />
       <Column Name="comment" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
       <Association Name="Problem_Answer" Member="Problem1" ThisKey="problem" OtherKey="id" Type="Problem" IsForeignKey="true" />
@@ -22,7 +30,7 @@
   </Table>
   <Table Name="dbo.Assignment" Member="Assignment">
     <Type Name="Assignment">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="course" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="descrip" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
@@ -48,7 +56,7 @@
   </Table>
   <Table Name="dbo.Problem" Member="Problem">
     <Type Name="Problem">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="assignment" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="descrip" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
@@ -74,14 +82,6 @@
       <Column Name="course" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Course_Student_Course" Member="Course1" ThisKey="course" OtherKey="num" Type="Course" IsForeignKey="true" />
       <Association Name="Student_Student_Course" Member="Student1" ThisKey="student" OtherKey="username" Type="Student" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Teacher" Member="Teacher">
-    <Type Name="Teacher">
-      <Column Name="username" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="passwd" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Teacher_Course" Member="Course" ThisKey="username" OtherKey="teacher" Type="Course" />
     </Type>
   </Table>
 </Database>

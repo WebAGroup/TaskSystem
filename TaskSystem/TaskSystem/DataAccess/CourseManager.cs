@@ -96,12 +96,35 @@ namespace TaskSystem.DataAccess
             var cin = from s in da.Student_Course
                       where s.course == c.First().num
                       select s;
-            var ca = from s in da.Assignment
+            var ca = from s in da.Assignment           
                      where s.course == c.First().num
                      select s;
-            da.Student_Course.DeleteAllOnSubmit(cin);
-            da.Assignment.DeleteAllOnSubmit(ca);
-            da.Course.DeleteAllOnSubmit(c);
+            if (ca.Count() > 0)
+            {
+                foreach (var n in ca)
+                {
+                    var p = from s in da.Problem
+                            where s.assignment == n.id
+                            select s;
+                    if (p.Count() > 0)
+                    {
+                        var answer = from s in da.Answer
+                                     where s.problem == p.First().id
+                                     select s;
+                        if (answer.Count() > 0)
+                        {
+                            da.Answer.DeleteAllOnSubmit(answer);            //删除answer
+                        }
+                    }
+                    da.Problem.DeleteAllOnSubmit(p);            //删除Problem
+                }
+                da.Assignment.DeleteAllOnSubmit(ca);           //删除assignment
+            }
+            if (cin.Count() > 0)
+            {
+                da.Student_Course.DeleteAllOnSubmit(cin);       //删除student_course
+            }
+            da.Course.DeleteAllOnSubmit(c);             //删除Course
             da.SubmitChanges();
             return true;
         

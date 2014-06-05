@@ -5,16 +5,12 @@ using System;
 using TaskSystem.DataAccess;
 using System.Linq;
 public class AssignmentManager {
-	public bool create(List<Problem> problems, Assignment thisAssignment){ // 创建作业
-        ProblemManager pm = new ProblemManager();
+	public bool create(Assignment thisAssignment){ // 创建作业
         DataBaseAccess.da.Assignment.InsertOnSubmit(thisAssignment);
         DataBaseAccess.da.SubmitChanges();
-        foreach (Problem s in problems)
-        {
-            pm.create(s);
-        }
         return true;
 	}
+
     public bool update(List<Problem> problems, Assignment thisAssignment) // 更新作业
     {
         DataClassesDataContext da = new DataClassesDataContext();

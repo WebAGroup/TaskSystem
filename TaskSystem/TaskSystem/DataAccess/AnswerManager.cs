@@ -57,7 +57,7 @@ public class AnswerManager
             foreach (Answer answ in ans)
             {
                 answ.comment = a.comment;
-                answ.cont = a.cont;
+                answ.content = a.content;
                 answ.score = a.score;
             }
         }
