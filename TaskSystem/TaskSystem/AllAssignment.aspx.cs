@@ -12,14 +12,18 @@ namespace TaskSystem
     {
         Teacher tea = new Teacher();
         Course course = new Course();
+        List<Course> courseforteacher;
         CourseManager CourMan = new CourseManager();
+        AssignmentManager AssignmentMan = new AssignmentManager();
 
         protected void Page_Load(object sender, EventArgs e)
         {
              //获取课程信息
             tea = (Teacher)Session["teacher"];
 
-            List<Course> courseforteacher = CourMan.GetCourseForTeacher(tea.username);
+            courseforteacher = CourMan.GetCourseForTeacher(tea.username);
+            Session["courselist"] = courseforteacher;
+
             foreach (var c in courseforteacher)
             {
                 if (c.num == Request.QueryString["Coursenum"])
@@ -28,7 +32,6 @@ namespace TaskSystem
                     break;
                 }
             }
-
             allassigncoursenameLabel.Text = course.name;
         }
 
@@ -36,6 +39,14 @@ namespace TaskSystem
         {
             Response.Redirect("Assign.aspx?Coursenum=" + Request.QueryString["Coursenum"]);
         }
+
+
+        protected void AllAssignmentGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int assignmentid = int.Parse(AllAssignmentGridView.DataKeys[e.RowIndex].Value.ToString());
+            AssignmentMan.delete(assignmentid);
+        }
+
 
     }
 }

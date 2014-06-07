@@ -12,14 +12,16 @@
     <p style="text-align: center; color: #0066FF">
         <asp:GridView ID="AllAssignmentGridView" runat="server" CellPadding="4" ForeColor="#333333" 
             GridLines="None" AllowPaging="True" AutoGenerateColumns="False" 
-            DataSourceID="LinqDataSource1"  >
+            DataSourceID="LinqDataSource1" DataKeyNames="id" 
+            onrowdeleting="AllAssignmentGridView_RowDeleting"  >
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="id" HeaderText="次数" ReadOnly="True" 
-                    SortExpression="id" />
-                <asp:HyperLinkField DataNavigateUrlFields="id" 
-                    DataNavigateUrlFormatString="OneAssignment.aspx?Assignmentnum={0}" 
+                <asp:BoundField DataField="number" HeaderText="次数" ReadOnly="True" 
+                    SortExpression="number" />
+                <asp:HyperLinkField DataNavigateUrlFields="id,number" 
+                    DataNavigateUrlFormatString="OneAssignment.aspx?Assignmentid={0}&amp;Assignmentnum={1}" 
                     DataTextField="title" HeaderText="标题" />
+                <asp:CommandField HeaderText="操作" ShowDeleteButton="True" ShowHeader="True" />
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -34,8 +36,8 @@
         </asp:GridView>
         <asp:LinqDataSource ID="LinqDataSource1" runat="server" 
             ContextTypeName="TaskSystem.DataAccess.DataClassesDataContext" 
-            EntityTypeName="" Select="new (id, title)" TableName="Assignment" 
-            Where="course == @course">
+            EntityTypeName="" TableName="Assignment" 
+            Where="course == @course" EnableDelete="True">
             <WhereParameters>
                 <asp:QueryStringParameter Name="course" QueryStringField="Coursenum" 
                     Type="String" />

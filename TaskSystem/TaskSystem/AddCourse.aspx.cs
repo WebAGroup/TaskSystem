@@ -11,13 +11,12 @@ namespace TaskSystem
     public partial class AddCourse : System.Web.UI.Page
     {
         CourseManager CourMan = new CourseManager();
-        static Course newcourse = new Course();
-        static Course deletecourse = new Course();
+       
         Teacher tea = new Teacher();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            DeleteCourseSureButton.Attributes.Add("onclick", "return confirm('确定要删吗?');");            
         }
 
         protected void AddCourseButton_Click(object sender, EventArgs e)
@@ -29,6 +28,7 @@ namespace TaskSystem
         protected void AddCourseSureButton_Click(object sender, EventArgs e)
         {
             tea = (Teacher)Session["teacher"];
+            Course newcourse = new Course();
 
             newcourse.teacher = tea.username;
             newcourse.name = cournameTextBox.Text;
@@ -39,7 +39,8 @@ namespace TaskSystem
             newcourse.end_time = end;
 
             CourMan.AddCourse(newcourse);
-            AddCoursePanel.Visible = false;
+           // AddCoursePanel.Visible = false;
+            Response.Redirect("AddCourse.aspx");
         }
 
         protected void AddCourseQuitButton_Click(object sender, EventArgs e)
@@ -55,8 +56,11 @@ namespace TaskSystem
 
         protected void DeleteCourseSureButton_Click(object sender, EventArgs e)
         {
+            Course deletecourse = (Course)Session["deletecourse"];
+            //DeletePanel.Visible = false;
             CourMan.DeleteCourse(deletecourse);
-            DeletePanel.Visible = false;
+            Response.Redirect("AddCourse.aspx");
+            
         }
 
         protected void DeleteCourseQuitButton_Click(object sender, EventArgs e)
@@ -67,7 +71,7 @@ namespace TaskSystem
         protected void dcnameTextBox_TextChanged(object sender, EventArgs e)
         {
             tea = (Teacher)Session["teacher"];
-
+            Course deletecourse = new Course();
             List<Course> courseforteacher = CourMan.GetCourseForTeacher(tea.username);
             foreach (var c in courseforteacher)
             {
@@ -77,6 +81,8 @@ namespace TaskSystem
                     break;
                 }
             }
+            Session["deletecourse"] = deletecourse;
+
             dcnumTextBox.Text = deletecourse.num;
             dcstart_timeLabel.Text = deletecourse.start_time.ToString();
             dcend_timeLabel.Text = deletecourse.end_time.ToString();
@@ -85,6 +91,7 @@ namespace TaskSystem
         protected void dcnumTextBox_TextChanged(object sender, EventArgs e)
         {
             tea = (Teacher)Session["teacher"];
+            Course deletecourse = new Course();
 
             List<Course> courseforteacher = CourMan.GetCourseForTeacher(tea.username);
             foreach (var c in courseforteacher)
@@ -95,9 +102,13 @@ namespace TaskSystem
                     break;
                 }
             }
+            Session["deletecourse"] = deletecourse;
+
             dcnameTextBox.Text = deletecourse.name;
             dcstart_timeLabel.Text = deletecourse.start_time.ToString();
             dcend_timeLabel.Text = deletecourse.end_time.ToString();
         }
+
+
     }
 }

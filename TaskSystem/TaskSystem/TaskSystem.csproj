@@ -101,6 +101,7 @@
     <Content Include="obj\Debug\TaskSystem.pdb" />
     <Content Include="obj\Debug\TempPE\DataAccess.DataClasses.designer.cs.dll" />
     <Content Include="obj\Debug\TempPE\DataAccess.DataClasses1.designer.cs.dll" />
+    <Content Include="OneProblem.aspx" />
     <Content Include="OneAssignment.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="SelectCourse.aspx" />
@@ -169,6 +170,13 @@
     </Compile>
     <Compile Include="MainFrame.Master.designer.cs">
       <DependentUpon>MainFrame.Master</DependentUpon>
+    </Compile>
+    <Compile Include="OneProblem.aspx.cs">
+      <DependentUpon>OneProblem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OneProblem.aspx.designer.cs">
+      <DependentUpon>OneProblem.aspx</DependentUpon>
     </Compile>
     <Compile Include="OneAssignment.aspx.cs">
       <DependentUpon>OneAssignment.aspx</DependentUpon>
@@ -243,7 +251,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>47475</DevelopmentServerPort>
+          <DevelopmentServerPort>8523</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -9,16 +9,11 @@ using TaskSystem.DataAccess;
 namespace TaskSystem
 {
     public partial class Assign : System.Web.UI.Page
-    {
-        //一次作业，保存在Session中
-        Dictionary<Assignment, List<Problem>> OneAssignment = new Dictionary<Assignment, List<Problem>>();
-
+    {     
         ProblemManager ProMan = new ProblemManager();
-        static List<Problem> problems = new List<Problem>();
+        List<Problem> problems = new List<Problem>();
 
         AssignmentManager assignMan = new AssignmentManager();
-        static Assignment assignment = new Assignment();
-        List<Assignment> assignments = new List<Assignment>();
 
         Teacher tea = new Teacher();
         CourseManager CourMan = new CourseManager();
@@ -38,9 +33,12 @@ namespace TaskSystem
                     break;
                 }
             }
-
+            //显示课程名
             coursenameLabel.Text = course.name;
-            //Session["assignment"] = OneAssignment;
+
+            //删除问题时弹窗
+            DeletePro.Attributes.Add("onclick", "return confirm('确定要删吗?');");
+
         }
         protected void AssignQuitButton_Click(object sender, EventArgs e)
         {
@@ -53,21 +51,31 @@ namespace TaskSystem
             AssignTitlePanel.Visible = false;
             ProblemsPanel.Visible = true;
 
+            Assignment assignment = new Assignment();
+
             string date = datelineTextBox.Text + " 23:59:59";
 
             //显示课程信息
             assignmentcourseLabel.Text = "课程：" + course.name;
             assignmentLabel.Text = "<br>标题：" + assigntitleTextBox.Text + "<br>截止日期：" + date + "<br>说明：" + assigndescriTextBox.Text;
 
+            //获得课程作业数
+            List<Assignment> assignmentnum = assignMan.getAssignment(course.num);
+
             //添加assignment
+            assignment.number = assignmentnum.Count + 1;
             assignment.title = assigntitleTextBox.Text;
             assignment.descrip = assigndescriTextBox.Text;
             assignment.start_time = DateTime.Now;
             assignment.end_time = DateTime.Parse(date);
             assignment.course = course.num;
             assignment.major = "11SE";
-            AssignmentManager am = new AssignmentManager();
-            am.create(assignment);
+
+            //将作业写入数据库
+            assignMan.create(assignment);
+
+            Session["Aassignment"] = assignment;
+            Session["problems"] = problems;
 
         }
 
@@ -84,19 +92,19 @@ namespace TaskSystem
         //添加该作业的一个问题
         protected void AProSureButton_Click(object sender, EventArgs e)
         {
-            ProblemManager pm = new ProblemManager();
             AProPanel.Visible = false;
-
+                
+            Assignment assignment = (Assignment)Session["Aassignment"];
             Problem Apro = new Problem();
+            problems = (List<Problem>)Session["problems"];
+
             Apro.title = AProtitleTextBox.Text;
             Apro.descrip = AProdescriTextBox.Text;
             Apro.score = 1.0f;
             Apro.assignment = assignment.id;
 
-            pm.create(Apro);
             problems.Add(Apro);
-
-            //SelectProRadioButtonList.Items.Clear();
+            Session["problems"] = problems;
 
             SelectProRadioButtonList.Items.Clear();
             for (int i = 0; i != problems.Count; i++)
@@ -109,15 +117,23 @@ namespace TaskSystem
         protected void UpdatePro_Click(object sender, EventArgs e)
         {
             UpdateAProPanel.Visible = true;
+            problems = (List<Problem>)Session["problems"];
+
             int selectindex = int.Parse(SelectProRadioButtonList.SelectedValue);
             UpdateAProtitleTextBox.Text = problems[selectindex].title;
             UpdateAProdescriTextBox.Text = problems[selectindex].descrip;
+
         }
 
+        //删除问题
         protected void DeletePro_Click(object sender, EventArgs e)
         {
+            problems = (List<Problem>)Session["problems"];
+
             int selectindex = int.Parse(SelectProRadioButtonList.SelectedValue);
             problems.RemoveAt(selectindex);
+            Session["problems"] = problems;
+
             SelectProRadioButtonList.Items.Clear();
 
             for (int i = 0; i != problems.Count; i++)
@@ -134,9 +150,14 @@ namespace TaskSystem
         protected void UpdateAProSureButton_Click(object sender, EventArgs e)
         {
             UpdateAProPanel.Visible = false;
+
+            problems = (List<Problem>)Session["problems"];
+            
             int selectindex = int.Parse(SelectProRadioButtonList.SelectedValue);
             problems[selectindex].title = UpdateAProtitleTextBox.Text;
             problems[selectindex].descrip = UpdateAProdescriTextBox.Text;
+
+            Session["problems"] = problems;
 
             SelectProRadioButtonList.Items.Clear();
 
@@ -149,9 +170,12 @@ namespace TaskSystem
         //保存此次作业
         protected void ProblemsSaveButton_Click(object sender, EventArgs e)
         {
-            //assignMan.create(problems, assignment);
-            //assignMan.update(problems, assignment);
-            problems.Clear();
+            //将问题存入数据库
+            problems = (List<Problem>)Session["problems"];
+            foreach (Problem Apro in problems)
+            {
+                ProMan.create(Apro);
+            }
             Response.Redirect("AllAssignment.aspx?Coursenum=" + Request.QueryString["Coursenum"]);
         }
 
