@@ -1,0 +1,433 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="admin.aspx.cs" Inherits="TaskSystem.admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>管理员</title>
+    <link href="images/校徽.jpg" rel="Shortcut Icon" type="image/x-icon" />
+    <link  href="css/admin.css" type="text/css" rel="Stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    <div class="head">
+    <img src="images/head.png" alt="title" width="100%" height="100%" />
+    </div>
+    <div class="topd">
+    <div class="welcome">
+        <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>&nbsp<asp:LinkButton
+            ID="LinkButton1" runat="server" onclick="LinkButton1_Click">注销</asp:LinkButton>&nbsp&nbsp
+            <asp:Button ID="Button7" runat="server" Text="修改密码" 
+            onclick="Button7_Click" />
+    </div>
+    </div>
+    <div class="main">
+    <div class="ll">
+     <object   classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"   codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0"   width="100%"   height="100%">   
+     
+    <param   name="movie"   value="images/flash2500.swf" />                                                                                                           
+    <param   name="quality"   value="high"/>   
+    <param   name="SCALE"   value="exactfit"/>   
+                                                                                 
+    <embed   src="images/flash2500.swf"   width="100%"   height="100%"   quality="high"   pluginspage="http://www.macromedia.com/go/getflashplayer"   type="application/x-shockwave-flash"   scale="exactfit"></embed>   
+                                                                                                         
+  </object>   
+    </div>
+    <div class="left">
+    <div class="kb"></div>
+    <div class="lb"></div>
+    <div >
+        <asp:Menu ID="Menu1" runat="server" Font-Size="X-Large" 
+            onmenuitemclick="Menu1_MenuItemClick">
+            <Items>
+                <asp:MenuItem Text="管理学生" Value="管理学生"></asp:MenuItem>
+                <asp:MenuItem Text="管理教师" Value="管理教师"></asp:MenuItem>
+                <asp:MenuItem Text="管理课程" Value="管理课程">
+                    <asp:MenuItem Text="课程" Value="课程"></asp:MenuItem>
+                    <asp:MenuItem Text="作业" Value="作业"></asp:MenuItem>
+                    <asp:MenuItem Text="问题" Value="问题"></asp:MenuItem>
+                    <asp:MenuItem Text="答案" Value="答案"></asp:MenuItem>
+                </asp:MenuItem>
+            </Items>
+        </asp:Menu>
+        </div>
+    </div>
+    <div class="right">
+        <asp:Panel ID="Panel1" runat="server" Visible="False">
+         <asp:Label ID="Label6" runat="server"  Font-Size="Large" ForeColor="#3399FF" 
+                Text="学生表管理"></asp:Label><br /><br />
+         账号：<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            昵称: <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+         专业：<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            <asp:Button ID="Button1" runat="server" Text="搜索" />
+            
+            <asp:QueryExtender ID="QueryExtender1" runat="server" TargetControlID="LinqDataSource1">
+            <asp:SearchExpression DataFields="username" SearchType="StartsWith">
+            <asp:ControlParameter ControlID="TextBox1" />
+            </asp:SearchExpression>
+
+            <asp:SearchExpression DataFields="name" SearchType="StartsWith">
+            <asp:ControlParameter ControlID="TextBox2" />
+            </asp:SearchExpression>
+
+            <asp:SearchExpression DataFields="major" SearchType="StartsWith">
+            <asp:ControlParameter ControlID="TextBox3" />
+            </asp:SearchExpression>
+            </asp:QueryExtender>
+
+
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
+                AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="username" 
+                DataSourceID="LinqDataSource1" onrowcommand="GridView1_RowCommand" 
+                Width="400px" >
+                <Columns>
+                    <asp:BoundField DataField="username" HeaderText="账号" ReadOnly="True" 
+                        SortExpression="username" />
+                    <asp:BoundField DataField="passwd" HeaderText="密码" SortExpression="passwd" />
+                    <asp:BoundField DataField="name" HeaderText="昵称" SortExpression="name" />
+                    <asp:BoundField DataField="major" HeaderText="专业" SortExpression="major" />
+                    <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
+                    <asp:CommandField HeaderText="删除" ShowDeleteButton="True" />
+                    <asp:ButtonField HeaderText="插入" Text="插入" CommandName="Insert" />
+                </Columns>
+                <EmptyDataTemplate>
+                    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" 
+                        DataKeyNames="username" DataSourceID="LinqDataSource1" DefaultMode="Insert" 
+                        Height="50px" Width="400px" oniteminserted="DetailsView1_ItemInserted" 
+                        AllowPaging="True" onitemcommand="DetailsView1_ItemCommand">
+                        <Fields>
+                            <asp:BoundField DataField="username" HeaderText="username" ReadOnly="True" 
+                                SortExpression="username" />
+                            <asp:BoundField DataField="passwd" HeaderText="passwd" 
+                                SortExpression="passwd" />
+                            <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                            <asp:BoundField DataField="major" HeaderText="major" SortExpression="major" />
+                            <asp:CommandField ShowInsertButton="True" ShowDeleteButton="True" 
+                                ShowEditButton="True" />
+                        </Fields>
+                    </asp:DetailsView>
+                </EmptyDataTemplate>
+            </asp:GridView>
+            <asp:LinqDataSource ID="LinqDataSource1" runat="server" 
+                ContextTypeName="TaskSystem.DataAccess.DataClassesDataContext" 
+                EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntityTypeName="" 
+                TableName="Student">
+            </asp:LinqDataSource>
+        </asp:Panel>
+
+        <asp:Panel ID="Panel2" runat="server" Visible="False">
+         <asp:Label ID="Label5" runat="server"  Font-Size="Large" ForeColor="#3399FF" Text="教师表管理" ></asp:Label><br /><br />
+
+          账号：<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+         昵称：<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+       
+            <asp:Button ID="Button2" runat="server" Text="搜索" />
+
+            <asp:QueryExtender ID="QueryExtender2" runat="server" TargetControlID="LinqDataSource2">
+            <asp:SearchExpression DataFields="username" SearchType="StartsWith">
+            <asp:ControlParameter ControlID="TextBox4" />
+            </asp:SearchExpression>
+
+            <asp:SearchExpression DataFields="name" SearchType="StartsWith">
+            <asp:ControlParameter ControlID="TextBox5" />
+            </asp:SearchExpression>
+
+            </asp:QueryExtender>
+
+
+            <asp:GridView ID="GridView2" runat="server" AllowPaging="True" Width="400px" 
+                AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="username" 
+                DataSourceID="LinqDataSource2" onrowcommand="GridView2_RowCommand">
+
+                <Columns>
+                    <asp:BoundField DataField="username" HeaderText="账号" ReadOnly="True" 
+                        SortExpression="username" />
+                    <asp:BoundField DataField="passwd" HeaderText="密码" SortExpression="passwd" />
+                    <asp:BoundField DataField="name" HeaderText="昵称" SortExpression="name" />
+                    <asp:CommandField HeaderText="操作" ShowDeleteButton="True" 
+                        ShowEditButton="True" />
+                    <asp:ButtonField HeaderText="插入" Text="插入" CommandName="Insert" />
+                </Columns>
+                <EmptyDataTemplate>
+                    <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" 
+                        DataKeyNames="username" DataSourceID="LinqDataSource2" DefaultMode="Insert" 
+                        Height="50px" Width="400px" onitemcommand="DetailsView2_ItemCommand" 
+                        oniteminserted="DetailsView2_ItemInserted">
+                        <Fields>
+                            <asp:BoundField DataField="username" HeaderText="username" ReadOnly="True" 
+                                SortExpression="username" />
+                            <asp:BoundField DataField="passwd" HeaderText="passwd" 
+                                SortExpression="passwd" />
+                            <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                            <asp:CommandField ShowInsertButton="True" />
+                        </Fields>
+                    </asp:DetailsView>
+                </EmptyDataTemplate>
+
+            </asp:GridView>
+            <asp:LinqDataSource ID="LinqDataSource2" runat="server" 
+                ContextTypeName="TaskSystem.DataAccess.DataClassesDataContext" 
+                EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntityTypeName="" 
+                TableName="Teacher">
+            </asp:LinqDataSource>
+        </asp:Panel>
+
+        <asp:Panel ID="Panel3" runat="server" Visible="False">
+         <asp:Label ID="Label4" runat="server"  Font-Size="Large" ForeColor="#3399FF" Text="课程表管理" ></asp:Label><br /><br />
+
+          教师：<asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+         课程名：<asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+        
+            <asp:Button ID="Button3" runat="server" Text="搜索" />
+
+            <asp:QueryExtender ID="QueryExtender3" runat="server" TargetControlID="LinqDataSource3">
+            <asp:SearchExpression DataFields="teacher" SearchType="StartsWith">
+            <asp:ControlParameter ControlID="TextBox6" />
+            </asp:SearchExpression>
+
+            <asp:SearchExpression DataFields="name" SearchType="StartsWith">
+            <asp:ControlParameter ControlID="TextBox7" />
+            </asp:SearchExpression>
+
+           
+            </asp:QueryExtender>
+
+
+            <asp:GridView ID="GridView3" runat="server" AllowPaging="True" 
+                AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="num" 
+                DataSourceID="LinqDataSource3" onrowcommand="GridView3_RowCommand">
+                <Columns>
+                    <asp:BoundField DataField="num" HeaderText="课程号" ReadOnly="True" 
+                        SortExpression="num" />
+                    <asp:BoundField DataField="teacher" HeaderText="教师账号" 
+                        SortExpression="teacher" />
+                    <asp:BoundField DataField="name" HeaderText="课程名" SortExpression="name" />
+                    <asp:BoundField DataField="start_time" HeaderText="开始时间" 
+                        SortExpression="start_time" />
+                    <asp:BoundField DataField="end_time" HeaderText="结束时间" 
+                        SortExpression="end_time" />
+                    <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
+                    <asp:CommandField HeaderText="删除" ShowDeleteButton="True" />
+                    <asp:ButtonField HeaderText="插入" Text="插入" CommandName="Insert" />
+                </Columns>
+                <EmptyDataTemplate>
+                    <asp:DetailsView ID="DetailsView3" runat="server" AutoGenerateRows="False" 
+                        DataKeyNames="num" DataSourceID="LinqDataSource3" DefaultMode="Insert" 
+                        Height="50px" Width="125px" onitemcommand="DetailsView3_ItemCommand" 
+                        oniteminserted="DetailsView3_ItemInserted">
+                        <Fields>
+                            <asp:BoundField DataField="num" HeaderText="num" ReadOnly="True" 
+                                SortExpression="num" />
+                            <asp:BoundField DataField="teacher" HeaderText="teacher" 
+                                SortExpression="teacher" />
+                            <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                            <asp:BoundField DataField="start_time" HeaderText="start_time" 
+                                SortExpression="start_time" />
+                            <asp:BoundField DataField="end_time" HeaderText="end_time" 
+                                SortExpression="end_time" />
+                            <asp:CommandField ShowInsertButton="True" />
+                        </Fields>
+                    </asp:DetailsView>
+                </EmptyDataTemplate>
+            </asp:GridView>
+            <asp:LinqDataSource ID="LinqDataSource3" runat="server" 
+                ContextTypeName="TaskSystem.DataAccess.DataClassesDataContext" 
+                EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntityTypeName="" 
+                TableName="Course">
+            </asp:LinqDataSource>
+        </asp:Panel>
+
+        <asp:Panel ID="Panel4" runat="server" Visible="False">
+         <asp:Label ID="Label3" runat="server"  Font-Size="Large" ForeColor="#3399FF" Text="作业表管理" ></asp:Label><br /><br />
+
+          专业：<asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+       
+            <asp:Button ID="Button4" runat="server" Text="搜索" />
+
+            <asp:QueryExtender ID="QueryExtender4" runat="server" TargetControlID="LinqDataSource4">
+            <asp:SearchExpression DataFields="major" SearchType="StartsWith">
+            <asp:ControlParameter ControlID="TextBox8" />
+            </asp:SearchExpression>
+          
+            </asp:QueryExtender>
+
+            <asp:GridView ID="GridView4" runat="server" AllowPaging="True" 
+                AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" 
+                DataSourceID="LinqDataSource4" onrowcommand="GridView4_RowCommand">
+                <Columns>
+                    <asp:BoundField DataField="id" HeaderText="作业ID" InsertVisible="False" 
+                        ReadOnly="True" SortExpression="id" />
+                    <asp:BoundField DataField="course" HeaderText="课程号" SortExpression="course" />
+                    <asp:BoundField DataField="title" HeaderText="作业标题" SortExpression="title" />
+                    <asp:BoundField DataField="descrip" HeaderText="作业描述" 
+                        SortExpression="descrip" />
+                    <asp:BoundField DataField="start_time" HeaderText="开始时间" 
+                        SortExpression="start_time" />
+                    <asp:BoundField DataField="end_time" HeaderText="结束时间" 
+                        SortExpression="end_time" />
+                    <asp:BoundField DataField="major" HeaderText="专业" SortExpression="major" />
+                    <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
+                    <asp:CommandField HeaderText="删除" ShowDeleteButton="True" />
+                    <asp:ButtonField HeaderText="插入" Text="插入" CommandName="Insert" />
+                </Columns>
+                <EmptyDataTemplate>
+                    <asp:DetailsView ID="DetailsView4" runat="server" AutoGenerateRows="False" 
+                        DataKeyNames="id" DataSourceID="LinqDataSource4" DefaultMode="Insert" 
+                        Height="50px" Width="125px" onitemcommand="DetailsView4_ItemCommand" 
+                        oniteminserted="DetailsView4_ItemInserted">
+                        <Fields>
+                            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" 
+                                ReadOnly="True" SortExpression="id" />
+                            <asp:BoundField DataField="course" HeaderText="course" 
+                                SortExpression="course" />
+                            <asp:BoundField DataField="title" HeaderText="title" SortExpression="title" />
+                            <asp:BoundField DataField="descrip" HeaderText="descrip" 
+                                SortExpression="descrip" />
+                            <asp:BoundField DataField="start_time" HeaderText="start_time" 
+                                SortExpression="start_time" />
+                            <asp:BoundField DataField="end_time" HeaderText="end_time" 
+                                SortExpression="end_time" />
+                            <asp:BoundField DataField="major" HeaderText="major" SortExpression="major" />
+                            <asp:CommandField ShowInsertButton="True" />
+                        </Fields>
+                    </asp:DetailsView>
+                </EmptyDataTemplate>
+            </asp:GridView>
+            <asp:LinqDataSource ID="LinqDataSource4" runat="server" 
+                ContextTypeName="TaskSystem.DataAccess.DataClassesDataContext" 
+                EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntityTypeName="" 
+                TableName="Assignment">
+            </asp:LinqDataSource>
+        </asp:Panel>
+
+        <asp:Panel ID="Panel5" runat="server" Visible="False">
+         <asp:Label ID="Label2" runat="server"  Font-Size="Large" ForeColor="#3399FF" Text="问题表管理"></asp:Label><br /><br />
+           标题：<asp:TextBox ID="TextBox9" runat="server" ></asp:TextBox>
+            <asp:Button ID="Button5" runat="server" Text="搜索" /><br />
+
+            <asp:QueryExtender ID="QueryExtender5" runat="server" TargetControlID="LinqDataSource5">
+            <asp:SearchExpression DataFields="title" SearchType="StartsWith" >
+            <asp:ControlParameter ControlID="TextBox9" />
+            </asp:SearchExpression>
+            </asp:QueryExtender>
+
+            <asp:GridView ID="GridView5" runat="server" AllowPaging="True" 
+                AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" 
+                DataSourceID="LinqDataSource5" onrowcommand="GridView5_RowCommand">
+                <Columns>
+                    <asp:BoundField DataField="id" HeaderText="问题ID" InsertVisible="False" 
+                        ReadOnly="True" SortExpression="id" />
+                    <asp:BoundField DataField="assignment" HeaderText="作业ID" 
+                        SortExpression="assignment" />
+                    <asp:BoundField DataField="title" HeaderText="问题标题" SortExpression="title" />
+                    <asp:BoundField DataField="descrip" HeaderText="问题描述" 
+                        SortExpression="descrip" />
+                    <asp:BoundField DataField="score" HeaderText="分数" SortExpression="score" />
+                    <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
+                    <asp:CommandField HeaderText="删除" ShowDeleteButton="True" />
+                    <asp:ButtonField HeaderText="插入" Text="插入" CommandName="Insert" />
+                </Columns>
+                <EmptyDataTemplate>
+                    <asp:DetailsView ID="DetailsView5" runat="server" AutoGenerateRows="False" 
+                        DataKeyNames="id" DataSourceID="LinqDataSource5" DefaultMode="Insert" 
+                        Height="50px" Width="125px" onitemcommand="DetailsView5_ItemCommand" 
+                        oniteminserted="DetailsView5_ItemInserted">
+                        <Fields>
+                            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" 
+                                ReadOnly="True" SortExpression="id" />
+                            <asp:BoundField DataField="assignment" HeaderText="assignment" 
+                                SortExpression="assignment" />
+                            <asp:BoundField DataField="title" HeaderText="title" SortExpression="title" />
+                            <asp:BoundField DataField="descrip" HeaderText="descrip" 
+                                SortExpression="descrip" />
+                            <asp:BoundField DataField="score" HeaderText="score" SortExpression="score" />
+                            <asp:CommandField ShowInsertButton="True" />
+                        </Fields>
+                    </asp:DetailsView>
+                </EmptyDataTemplate>
+            </asp:GridView>
+            <asp:LinqDataSource ID="LinqDataSource5" runat="server" 
+                ContextTypeName="TaskSystem.DataAccess.DataClassesDataContext" 
+                EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntityTypeName="" 
+                TableName="Problem">
+            </asp:LinqDataSource>
+        </asp:Panel>
+
+        <asp:Panel ID="Panel6" runat="server" Visible="False">
+            <asp:Label ID="Label1" runat="server"  Font-Size="Large" ForeColor="#3399FF" Text="答案表管理"></asp:Label><br /><br />
+            学生账号：<asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
+            分数：<asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
+            <asp:Button ID="Button6" runat="server" Text="搜索" />
+            <asp:QueryExtender ID="QueryExtender6" runat="server" TargetControlID="LinqDataSource6">
+            <asp:SearchExpression DataFields="student" SearchType="StartsWith">
+            <asp:ControlParameter ControlID="TextBox10" />
+            </asp:SearchExpression>
+             
+            <asp:SearchExpression DataFields="score" SearchType="StartsWith">
+            <asp:ControlParameter ControlID="TextBox11" />
+            </asp:SearchExpression>
+            </asp:QueryExtender>
+
+
+            <asp:GridView ID="GridView6" runat="server" AllowPaging="True" 
+                AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="student,problem" 
+                DataSourceID="LinqDataSource6" onrowcommand="GridView6_RowCommand">
+                <Columns>
+                    <asp:BoundField DataField="student" HeaderText="学生账号" ReadOnly="True" 
+                        SortExpression="student" />
+                    <asp:BoundField DataField="problem" HeaderText="问题ID" ReadOnly="True" 
+                        SortExpression="problem" />
+                    <asp:BoundField DataField="content" HeaderText="内容" SortExpression="content" />
+                    <asp:BoundField DataField="score" HeaderText="分数" SortExpression="score" />
+                    <asp:BoundField DataField="comment" HeaderText="评论" SortExpression="comment" />
+                    <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
+                    <asp:CommandField HeaderText="删除" ShowDeleteButton="True" />
+                    <asp:ButtonField HeaderText="插入" Text="插入" CommandName="Insert" />
+                </Columns>
+                <EmptyDataTemplate>
+                    <asp:DetailsView ID="DetailsView7" runat="server" AutoGenerateRows="False" 
+                        DataKeyNames="student,problem" DataSourceID="LinqDataSource6" 
+                        DefaultMode="Insert" Height="50px" Width="125px" 
+                        onitemcommand="DetailsView7_ItemCommand" 
+                        oniteminserted="DetailsView7_ItemInserted">
+                        <Fields>
+                            <asp:BoundField DataField="student" HeaderText="student" ReadOnly="True" 
+                                SortExpression="student" />
+                            <asp:BoundField DataField="problem" HeaderText="problem" ReadOnly="True" 
+                                SortExpression="problem" />
+                            <asp:BoundField DataField="content" HeaderText="content" 
+                                SortExpression="content" />
+                            <asp:BoundField DataField="score" HeaderText="score" SortExpression="score" />
+                            <asp:BoundField DataField="comment" HeaderText="comment" 
+                                SortExpression="comment" />
+                            <asp:CommandField ShowInsertButton="True" />
+                        </Fields>
+                    </asp:DetailsView>
+                </EmptyDataTemplate>
+            </asp:GridView>
+            <asp:LinqDataSource ID="LinqDataSource6" runat="server" 
+                ContextTypeName="TaskSystem.DataAccess.DataClassesDataContext" 
+                EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntityTypeName="" 
+                TableName="Answer">
+            </asp:LinqDataSource>
+        </asp:Panel>
+
+        <asp:Panel ID="Panel7" runat="server" Visible="False">
+        旧的密码：<asp:TextBox ID="TextBox12" runat="server" TextMode="Password"></asp:TextBox><br />
+        新的密码：<asp:TextBox ID="TextBox13" runat="server" TextMode="Password"></asp:TextBox><br />
+        确认密码：<asp:TextBox ID="TextBox14" runat="server" TextMode="Password"></asp:TextBox>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="两次密码不一致" ControlToValidate="TextBox14" ControlToCompare="TextBox13"></asp:CompareValidator>
+        <br /><br />
+            <asp:Button ID="Button8" runat="server" Text="确认" onclick="Button8_Click" /> &nbsp &nbsp   
+            <asp:Button ID="Button9" runat="server" Text="取消" onclick="Button9_Click" />
+        </asp:Panel>
+
+    </div>
+    <div class="rr"></div>
+
+    </div>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,5 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbc23b1bbe25304f95bd0da33400cd3072" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=c23b1bbe-2530-4f95-bd0d-a33400cd3072.sqlserver.sequelizer.com;Initial Catalog=dbc23b1bbe25304f95bd0da33400cd3072;Persist Security Info=True;User ID=tlmfurihbcfzlncr" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="dbc23b1bbe25304f95bd0da33400cd3072ConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataSource" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=c23b1bbe-2530-4f95-bd0d-a33400cd3072.sqlserver.sequelizer.com;Persist Security Info=True;User ID=tlmfurihbcfzlncr" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DataSourceConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Admin" Member="Admin">
+    <Type Name="Admin">
+      <Column Name="username" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="passwd" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Accessory" Member="Accessory">
     <Type Name="Accessory">
       <Column Name="student" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -7,14 +13,6 @@
       <Column Name="adress" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
       <Association Name="Assignment_Accessory" Member="Assignment1" ThisKey="assignment" OtherKey="id" Type="Assignment" IsForeignKey="true" />
       <Association Name="Student_Accessory" Member="Student1" ThisKey="student" OtherKey="username" Type="Student" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Teacher" Member="Teacher">
-    <Type Name="Teacher">
-      <Column Name="username" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="passwd" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Teacher_Course" Member="Course" ThisKey="username" OtherKey="teacher" Type="Course" />
     </Type>
   </Table>
   <Table Name="dbo.Answer" Member="Answer">
@@ -83,6 +81,14 @@
       <Column Name="course" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Course_Student_Course" Member="Course1" ThisKey="course" OtherKey="num" Type="Course" IsForeignKey="true" />
       <Association Name="Student_Student_Course" Member="Student1" ThisKey="student" OtherKey="username" Type="Student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Teacher" Member="Teacher">
+    <Type Name="Teacher">
+      <Column Name="username" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="passwd" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Teacher_Course" Member="Course" ThisKey="username" OtherKey="teacher" Type="Course" />
     </Type>
   </Table>
 </Database>

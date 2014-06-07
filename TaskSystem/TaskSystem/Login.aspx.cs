@@ -31,6 +31,8 @@ namespace TaskSystem
                             StudentManager Student = new StudentManager();
                             TeacherManager Teacher = new TeacherManager();
 
+                            AdminManager am = new AdminManager();
+
                             if (Identity.Equals("student"))
                             {
                                 if (UserPassword != Student.GetStudent(UserName).passwd)
@@ -54,6 +56,19 @@ namespace TaskSystem
                                 {
                                     Session["teacher"] = Teacher.GetTeacher(UserName);
                                     Response.Redirect("AddCourse.aspx");
+                                }
+                            }
+
+                            else if (Identity.Equals("admin"))
+                            {
+                                if (UserPassword != am.GetAdmin(UserName).passwd)
+                                {
+                                    Response.Write("<Script Language=JavaScript>alert('密码或用户名错误，请重试！');</Script>");
+                                }
+                                else
+                                {
+                                    Session["admin"] = am.GetAdmin(UserName);
+                                    Response.Redirect("admin.aspx?user="+UserName);
                                 }
                             }
 

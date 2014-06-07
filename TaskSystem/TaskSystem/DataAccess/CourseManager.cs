@@ -114,8 +114,16 @@ namespace TaskSystem.DataAccess
                             da.Answer.DeleteAllOnSubmit(answer);            //删除answer
                         }
                     }
+                    var accessory = from s in da.Accessory
+                                    where s.assignment == n.id
+                                    select s;
+                    if (accessory.Count() > 0)
+                        da.Accessory.DeleteAllOnSubmit(accessory);
+
                     da.Problem.DeleteAllOnSubmit(p);            //删除Problem
                 }
+
+
                 da.Assignment.DeleteAllOnSubmit(ca);           //删除assignment
             }
             if (cin.Count() > 0)

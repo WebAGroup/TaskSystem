@@ -28,6 +28,12 @@ public class AssignmentManager {
                          where s.id == id
                          select s;
         da.Assignment.DeleteAllOnSubmit(assignment);
+
+        var accessory = from s in da.Accessory
+                        where s.assignment == id
+                        select s;
+        if (accessory.Count() > 0)
+            da.Accessory.DeleteAllOnSubmit(accessory);
         da.SubmitChanges();
         return true;
 	}
