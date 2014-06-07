@@ -12,7 +12,11 @@
         <meta content="MSHTML 6.00.6000.16674" name="GENERATOR"/>
     </head>
     <body id="userlogin_body">
-        <div></div>
+        <div>
+            <center>
+            <asp:Image ID="Image2" runat="server" Height="62px" ImageUrl="~/images/LoginHeader.png" Width="600px" />
+            </center>
+        </div>
     <form id="login" name="login" action="?Action=Login" runat="server" method="post">
         <div id="user_login">
         <dl>

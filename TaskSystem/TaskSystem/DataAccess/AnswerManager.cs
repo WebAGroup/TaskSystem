@@ -61,6 +61,7 @@ public class AnswerManager
                 answ.score = a.score;
             }
         }
+        da.SubmitChanges();
         return true;
     }
 

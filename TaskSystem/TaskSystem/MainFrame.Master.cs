@@ -52,7 +52,9 @@ namespace TaskSystem
         protected void log_out_Click(object sender, EventArgs e)
         {
             Session.RemoveAll();
-            Response.Redirect("Login.aspx");
+            //Response.Redirect("Login.aspx");
+            //可屏蔽IE后退
+            Response.Write("<Script Language=JavaScript>window.location.href='Login.aspx';</Script>");
         }
 
         protected void initTeacherTreeView()

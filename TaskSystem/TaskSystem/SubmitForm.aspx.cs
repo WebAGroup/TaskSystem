@@ -87,13 +87,14 @@ namespace TaskSystem
                 //Response.Write("<Script Language=JavaScript>content=document.getElementById('TA" + i + "').value;</Script>");
                 answer.content = content[i];
                 answer.student = stu.username;
-                answer.problem = i + 1;
+                answer.problem = ProblemList[i].id;
                 answer.score = (float)0.0;
                 answer.comment = "no comment";
                 if (AnswerList == null)
                 {
                     AnswerList = new List<Answer>();
                 }
+                AnswerList.Clear();
                 AnswerList.Add(answer);
             }
 

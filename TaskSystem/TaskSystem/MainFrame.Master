@@ -27,7 +27,7 @@
     <div class="menu">
     <asp:TreeView ID="TreeView1" runat="server" ImageSet="BulletedList4" Width="100%" 
             ExpandDepth="0" Height="100%" Font-Bold="True" Font-Italic="False" 
-            Font-Names="Arial" Font-Size="Medium" ForeColor="White" 
+            Font-Names="Arial" Font-Size="Medium" ForeColor="White"  
             onselectednodechanged="TreeView1_SelectedNodeChanged1" >
         <HoverNodeStyle Font-Underline="True" ForeColor="White" BorderStyle="Double" 
             Font-Bold="True" Font-Overline="False" Font-Size="Larger" />
