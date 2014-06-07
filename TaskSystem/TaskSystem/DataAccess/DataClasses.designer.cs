@@ -741,6 +741,8 @@ namespace TaskSystem.DataAccess
 		
 		private string _major;
 		
+		private System.Nullable<int> _number;
+		
 		private EntitySet<Accessory> _Accessory;
 		
 		private EntitySet<Problem> _Problem;
@@ -765,6 +767,8 @@ namespace TaskSystem.DataAccess
     partial void Onend_timeChanged();
     partial void OnmajorChanging(string value);
     partial void OnmajorChanged();
+    partial void OnnumberChanging(System.Nullable<int> value);
+    partial void OnnumberChanged();
     #endregion
 		
 		public Assignment()
@@ -915,6 +919,26 @@ namespace TaskSystem.DataAccess
 					this._major = value;
 					this.SendPropertyChanged("major");
 					this.OnmajorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_number", DbType="Int")]
+		public System.Nullable<int> number
+		{
+			get
+			{
+				return this._number;
+			}
+			set
+			{
+				if ((this._number != value))
+				{
+					this.OnnumberChanging(value);
+					this.SendPropertyChanging();
+					this._number = value;
+					this.SendPropertyChanged("number");
+					this.OnnumberChanged();
 				}
 			}
 		}

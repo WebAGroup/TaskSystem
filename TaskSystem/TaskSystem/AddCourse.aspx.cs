@@ -99,7 +99,5 @@ namespace TaskSystem
             dcstart_timeLabel.Text = deletecourse.start_time.ToString();
             dcend_timeLabel.Text = deletecourse.end_time.ToString();
         }
-
-
     }
 }

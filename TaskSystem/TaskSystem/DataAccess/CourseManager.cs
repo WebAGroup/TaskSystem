@@ -69,9 +69,7 @@ namespace TaskSystem.DataAccess
         public bool AddCourse(Course course)        //添加课程
         {
             DataClassesDataContext da = new DataClassesDataContext();
-            Course cou = new Course();
-            cou = course;
-            da.Course.InsertOnSubmit(cou);
+            da.Course.InsertOnSubmit(course);
             da.SubmitChanges();
             return true;
         }

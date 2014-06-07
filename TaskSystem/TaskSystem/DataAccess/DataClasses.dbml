@@ -37,6 +37,7 @@
       <Column Name="start_time" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
       <Column Name="end_time" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
       <Column Name="major" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="number" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Assignment_Accessory" Member="Accessory" ThisKey="id" OtherKey="assignment" Type="Accessory" />
       <Association Name="Assignment_Problem" Member="Problem" ThisKey="id" OtherKey="assignment" Type="Problem" />
       <Association Name="Course_Assignment" Member="Course1" ThisKey="course" OtherKey="num" Type="Course" IsForeignKey="true" />
