@@ -13,7 +13,8 @@
         <asp:GridView ID="AllAssignmentGridView" runat="server" CellPadding="4" ForeColor="#333333" 
             GridLines="None" AllowPaging="True" AutoGenerateColumns="False" 
             DataSourceID="LinqDataSource1" DataKeyNames="id" 
-            onrowdeleting="AllAssignmentGridView_RowDeleting"  >
+            onrowdeleting="AllAssignmentGridView_RowDeleting" 
+            style="margin-left: 326px" Width="477px"  >
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="number" HeaderText="次数" ReadOnly="True" 

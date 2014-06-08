@@ -13,13 +13,13 @@ namespace TaskSystem {
     public partial class OneAssignment {
         
         /// <summary>
-        /// TextBox1 控件。
+        /// majorTextBox 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox majorTextBox;
         
         /// <summary>
         /// StuNameTextBox 控件。
@@ -29,15 +29,6 @@ namespace TaskSystem {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox StuNameTextBox;
-        
-        /// <summary>
-        /// NumDropDownList 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList NumDropDownList;
         
         /// <summary>
         /// StateDropDownList 控件。
@@ -56,6 +47,15 @@ namespace TaskSystem {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SearchButton;
+        
+        /// <summary>
+        /// QueryExtender1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.QueryExtender QueryExtender1;
         
         /// <summary>
         /// OneAssignmentGridView 控件。

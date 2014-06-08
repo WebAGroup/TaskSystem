@@ -12,12 +12,11 @@
     </p>
     <asp:GridView ID="OneProblemGridView" runat="server" 
         AutoGenerateColumns="False" CellPadding="4" 
-        DataSourceID="LinqDataSource1" ForeColor="#333333" GridLines="None" style="text-align: left" 
-        DataKeyNames="id" onrowdeleting="OneProblemGridView_RowDeleting">
+        DataSourceID="LinqDataSource1" ForeColor="#333333" GridLines="None" style="text-align: left; margin-left: 270px;" 
+        DataKeyNames="id" onrowdeleting="OneProblemGridView_RowDeleting" 
+        Width="619px">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="id" HeaderText="次数" ReadOnly="True" 
-                SortExpression="id" />
             <asp:BoundField DataField="title" HeaderText="标题" 
                 SortExpression="title" ReadOnly="True" />
             <asp:BoundField DataField="descrip" HeaderText="说明" ReadOnly="True" 

@@ -90,6 +90,8 @@ namespace TaskSystem
                 answer.problem = ProblemList[i].id;
                 answer.score = (float)0.0;
                 answer.comment = "no comment";
+                answer.major = stu.major;
+                answer.state = "2";
                 if (AnswerList == null)
                 {
                     AnswerList = new List<Answer>();

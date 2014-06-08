@@ -7,7 +7,7 @@ using TaskSystem.DataAccess;
 public class AnswerManager
 {
     private List<Answer> AnswerList;
-
+    private Answer oneanswer;
     public List<Answer> GetAnswerList(String student, int assignment)       //student表示学生账号名， assignment表示作业号
     {
         DataClassesDataContext da = new DataClassesDataContext();
@@ -38,6 +38,16 @@ public class AnswerManager
 
     }
 
+    public Answer GetOneAnswer(String student, int problem)       //student表示学生账号名， problem表示问题id
+    {
+        DataClassesDataContext da = new DataClassesDataContext();
+        var answer = from s in da.Answer
+                     where s.student == student && s.problem == problem
+                     select s;
+        foreach (var a in answer)
+            oneanswer = a;
+            return oneanswer;
+    }
     public bool AddAnswer(List<Answer> answer)          //添加答案
     {
         DataClassesDataContext da = new DataClassesDataContext();
@@ -59,6 +69,7 @@ public class AnswerManager
                 answ.comment = a.comment;
                 answ.content = a.content;
                 answ.score = a.score;
+                answ.state = a.state;
             }
         }
         da.SubmitChanges();
