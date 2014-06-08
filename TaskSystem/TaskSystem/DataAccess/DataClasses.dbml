@@ -22,6 +22,8 @@
       <Column Name="content" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
       <Column Name="score" Type="System.Single" DbType="Real" CanBeNull="true" />
       <Column Name="comment" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Column Name="major" Type="System.String" DbType="NVarChar(50)" CanBeNull="false" />
+      <Column Name="state" Type="System.String" DbType="NVarChar(50)" CanBeNull="false" />
       <Association Name="Problem_Answer" Member="Problem1" ThisKey="problem" OtherKey="id" Type="Problem" IsForeignKey="true" />
       <Association Name="Student_Answer" Member="Student1" ThisKey="student" OtherKey="username" Type="Student" IsForeignKey="true" />
     </Type>
