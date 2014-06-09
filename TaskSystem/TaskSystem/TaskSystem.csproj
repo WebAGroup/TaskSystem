@@ -67,11 +67,13 @@
     <Content Include="AllAssignment.aspx" />
     <Content Include="Assign.aspx" />
     <Content Include="Check.aspx" />
+    <Content Include="css\Assignment.css" />
     <Content Include="css\Course_Select.css" />
     <Content Include="css\Default.css" />
     <Content Include="css\Homework_Submit.css" />
     <Content Include="css\Master.css" />
     <Content Include="css\Register.css" />
+    <Content Include="css\StudentMainForm.css" />
     <Content Include="css\User_Login.css" />
     <Content Include="css\xtree.css" />
     <Content Include="images\Background_0.png" />
@@ -97,9 +99,12 @@
     <Content Include="images\user_top_l.gif" />
     <Content Include="images\user_top_r.gif" />
     <Content Include="images\校徽.jpg" />
+    <Content Include="js\jquery-1.2.4a.js" />
     <Content Include="js\jquery-1.8.3.min.js" />
     <Content Include="js\nicEdit.js" />
     <Content Include="js\RegJS.js" />
+    <Content Include="js\ui.base.min.js" />
+    <Content Include="js\ui.draggable.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="MainFrame.Master" />
     <Content Include="obj\Debug\TaskSystem.csproj.FileListAbsolute.txt" />
@@ -278,7 +283,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>8523</DevelopmentServerPort>
+          <DevelopmentServerPort>36912</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

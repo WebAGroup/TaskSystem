@@ -30,17 +30,25 @@ namespace TaskSystem
             tea = (Teacher)Session["teacher"];
             Course newcourse = new Course();
 
-            newcourse.teacher = tea.username;
-            newcourse.name = cournameTextBox.Text;
-            newcourse.num = cournumTextBox.Text;
-            DateTime start = Convert.ToDateTime(courstart_timeTextBox.Text + " 00:00:00");
-            newcourse.start_time = start;
-            DateTime end = Convert.ToDateTime(courend_timeTextBox.Text + " 23:59:59");
-            newcourse.end_time = end;
+            if (cournameTextBox.Text == "" || cournumTextBox.Text == "")
+            {
+                Response.Write("<script>alert('课程名与课程编号皆不能为空!');location.href='AddCourse.aspx';</script>");
+                AddCoursePanel.Visible = true;
+            }
+            else
+            {
+                newcourse.teacher = tea.username;
+                newcourse.name = cournameTextBox.Text;
+                newcourse.num = cournumTextBox.Text;
+                DateTime start = Convert.ToDateTime(courstart_timeTextBox.Text + " 00:00:00");
+                newcourse.start_time = start;
+                DateTime end = Convert.ToDateTime(courend_timeTextBox.Text + " 23:59:59");
+                newcourse.end_time = end;
 
-            CourMan.AddCourse(newcourse);
-           // AddCoursePanel.Visible = false;
-            Response.Redirect("AddCourse.aspx");
+                CourMan.AddCourse(newcourse);
+                Response.Write("<script>alert('成功添加!');location.href='AddCourse.aspx';</script>");
+                //Response.Redirect("AddCourse.aspx");
+            }             
         }
 
         protected void AddCourseQuitButton_Click(object sender, EventArgs e)
@@ -57,9 +65,9 @@ namespace TaskSystem
         protected void DeleteCourseSureButton_Click(object sender, EventArgs e)
         {
             Course deletecourse = (Course)Session["deletecourse"];
-            //DeletePanel.Visible = false;
             CourMan.DeleteCourse(deletecourse);
-            Response.Redirect("AddCourse.aspx");
+            Response.Write("<script>alert('成功删除!');location.href='AddCourse.aspx';</script>"); 
+            //Response.Redirect("AddCourse.aspx");
             
         }
 

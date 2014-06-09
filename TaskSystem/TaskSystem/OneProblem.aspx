@@ -32,7 +32,7 @@
         <asp:GridView ID="OneAssignmentGridView" runat="server" CellPadding="4" 
             ForeColor="#333333" GridLines="None" AllowPaging="True" 
             AutoGenerateColumns="False" DataSourceID="LinqDataSource1" 
-            DataKeyNames="student,problem" style="margin-left: 216px; text-align:left" Width="647px">
+            DataKeyNames="student,problem" style="margin-left: 216px; text-align:center" Width="647px">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="major" HeaderText="专业" ReadOnly="True" 

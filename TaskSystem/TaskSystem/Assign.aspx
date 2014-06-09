@@ -16,15 +16,19 @@
         <br />
     作业说明：<asp:TextBox ID="assigndescriTextBox" runat="server" Height="62px" 
             TextMode="MultiLine" Width="238px"></asp:TextBox><br />
-        <asp:Button ID="AssignSureButton" runat="server" Text="确定" 
-            onclick="AssignSureButton_Click" class="AddButton"/>
-        <asp:Button ID="AssignQuitButton" runat="server" Text="取消" 
-            onclick="AssignQuitButton_Click" class="DeleteButton"/>
+        &nbsp;<asp:Button ID="AssignSureButton" runat="server" Text="确定" 
+            onclick="AssignSureButton_Click" class="AddButton" 
+            style="margin-left: 249px; height: 21px;"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="AssignQuitButton" runat="server" class="DeleteButton" 
+            onclick="AssignQuitButton_Click" Text="取消" />
     </asp:Panel><br />
-    <asp:Panel ID="ProblemsPanel" runat="server" Visible="False" class="buttonFrame" Height="708px">
+
+    <asp:Panel ID="ProblemsPanel" runat="server" Visible="False" class="buttonFrame">
     <asp:Button ID="AddPro" runat="server" Text="增加" onclick="AddPro_Click" class="AddButton"/>
-    <asp:Button ID="UpdatePro" runat="server" Text="修改" onclick="UpdatePro_Click" class="AddButton"/>
-    <asp:Button ID="DeletePro" runat="server" Text="删除" onclick="DeletePro_Click" class="DeleteButton"/>
+    <asp:Button ID="UpdatePro" runat="server" Text="修改" 
+            onclick="UpdatePro_Click" class="AddButton"/>
+        <asp:Button ID="DeletePro" runat="server" Text="删除" onclick="DeletePro_Click" class="DeleteButton"/>
         <br />
          <p style="text-align: center; color: #0066FF">
         <asp:Label ID="assignmentcourseLabel" runat="server" 
@@ -38,7 +42,7 @@
             ondatabinding="Page_Load">
         </asp:RadioButtonList>
         <br />
-        <asp:Panel ID="AProPanel" runat="server" class="assignFrame">
+        <asp:Panel ID="AProPanel" runat="server" class="assignFrame" Visible="False">
             标题：<asp:TextBox ID="AProtitleTextBox" runat="server" Height="29px" TextMode="MultiLine" 
                 Width="263px"></asp:TextBox>
             <br />
@@ -47,12 +51,14 @@
                 Width="262px"></asp:TextBox>
             <br />
             <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="AProSureButton" runat="server"  Text="确定" 
                 onclick="AProSureButton_Click" class="AddButton"/>
+            &nbsp;&nbsp;&nbsp;
             <asp:Button ID="AProQuitButton" runat="server" Text="取消" 
                 onclick="AProQuitButton_Click" class="DeleteButton"/>
         </asp:Panel>
-         <asp:Panel ID="UpdateAProPanel" runat="server" class="assignFrame">
+        <asp:Panel ID="UpdateAProPanel" runat="server" Visible="False" class="assignFrame">
             标题：<asp:TextBox ID="UpdateAProtitleTextBox" runat="server" Height="29px" TextMode="MultiLine" 
                 Width="263px"></asp:TextBox>
             <br />
@@ -61,13 +67,17 @@
                 Width="262px"></asp:TextBox>
             <br />
             <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="UpdateAProSureButton" runat="server"  Text="确定" 
                  onclick="UpdateAProSureButton_Click" class="AddButton"/>
+             &nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="UpdateAProQuitButton" runat="server" Text="取消" 
                  onclick="UpdateAProQuitButton_Click" class="DeleteButton"/>
         </asp:Panel>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="ProblemsSaveButton" runat="server" Text="保存" 
             onclick="ProblemsSaveButton_Click" class="AddButton"/>
+        &nbsp;&nbsp;&nbsp;
         <asp:Button ID="ProblemsQuitButton" runat="server" Text="取消" 
             onclick="ProblemsQuitButton_Click" class="DeleteButton"/>
     </asp:Panel>

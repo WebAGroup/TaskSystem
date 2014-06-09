@@ -17,8 +17,10 @@
         Width="291px"></asp:TextBox>
     <br />
     <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="CheckSaveButton" runat="server" Text="保存" 
         onclick="CheckSaveButton_Click" class="AddButton"/>
+&nbsp;&nbsp;&nbsp;
     <asp:Button ID="CheckQuitButton" runat="server" Text="取消" 
         onclick="CheckQuitButton_Click" class="DeleteButton"/>
 </asp:Content>

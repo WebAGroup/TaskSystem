@@ -36,13 +36,12 @@
 
 .bottom {
     border-width: 1px;
-    bottom: -5px;
+    bottom: 0px;
     position: fixed;
-    width: 101%;
+    width: 100%;
     background-color: #C0C0C0;
     height: 23px;
     color: #FFFFFF;
-    left: -2px;
 }
 
 #welcome {
