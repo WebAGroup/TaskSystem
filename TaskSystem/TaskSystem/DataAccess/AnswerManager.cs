@@ -8,6 +8,7 @@ public class AnswerManager
 {
     private List<Answer> AnswerList;
     private Answer oneanswer;
+
     public List<Answer> GetAnswerList(String student, int assignment)       //student表示学生账号名， assignment表示作业号
     {
         DataClassesDataContext da = new DataClassesDataContext();
@@ -38,7 +39,21 @@ public class AnswerManager
 
     }
 
-    public Answer GetOneAnswer(String student, int problem)       //student表示学生账号名， problem表示问题id
+    public List<Answer> GetNoCheckAnswersofApro(int problem)       //获取一个问题的所有未批改的学生答案记录，problem表示问题id
+    {
+        DataClassesDataContext da = new DataClassesDataContext();
+        List<Answer> answerlist = new List<Answer>();
+        var answer = from s in da.Answer
+                     where s.problem == problem && s.state == "2"
+                     select s;
+        foreach (var a in answer)
+        {
+            answerlist.Add(a);
+        }
+        return answerlist;
+    }
+
+    public Answer GetOneAnswer(String student, int problem)       //获取一个问题的一条学生答案记录，student表示学生账号名， problem表示问题id
     {
         DataClassesDataContext da = new DataClassesDataContext();
         var answer = from s in da.Answer
@@ -48,6 +63,7 @@ public class AnswerManager
             oneanswer = a;
             return oneanswer;
     }
+
     public bool AddAnswer(List<Answer> answer)          //添加答案
     {
         DataClassesDataContext da = new DataClassesDataContext();
