@@ -178,9 +178,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataAccess\DataClasses.designer.cs">
-      <DependentUpon>DataClasses.dbml</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\ProblemManager.cs">
       <SubType>Code</SubType>
@@ -251,12 +251,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DataAccess\DataClasses.dbml">
-      <SubType>Designer</SubType>
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataAccess\DataClasses.dbml.layout">
-      <DependentUpon>DataClasses.dbml</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\TaskSystem.csprojResolveAssemblyReference.cache" />
@@ -266,6 +263,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataAccess\DataClasses.dbml.layout">
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

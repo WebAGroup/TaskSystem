@@ -293,28 +293,32 @@
                             <asp:Label ID="Label1" runat="server" Font-Size="Large" ForeColor="#3399FF" Text="答案表管理"></asp:Label><br />
                             <br />
                             学生账号：<asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
-                            分数：<asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
+                           
                             <asp:Button ID="Button6" runat="server" Text="搜索" />
                             <asp:QueryExtender ID="QueryExtender6" runat="server" TargetControlID="LinqDataSource6">
                                 <asp:SearchExpression DataFields="student" SearchType="StartsWith">
                                     <asp:ControlParameter ControlID="TextBox10" />
                                 </asp:SearchExpression>
-                                <asp:SearchExpression DataFields="score" SearchType="StartsWith">
-                                    <asp:ControlParameter ControlID="TextBox11" />
-                                </asp:SearchExpression>
+                       
                             </asp:QueryExtender>
                             <asp:GridView ID="GridView6" runat="server" AllowPaging="True" AllowSorting="True"
                                 AutoGenerateColumns="False" DataKeyNames="student,problem" DataSourceID="LinqDataSource6"
                                 OnRowCommand="GridView6_RowCommand">
                                 <Columns>
-                                    <asp:BoundField DataField="student" HeaderText="学生账号" ReadOnly="True" SortExpression="student" />
-                                    <asp:BoundField DataField="problem" HeaderText="问题ID" ReadOnly="True" SortExpression="problem" />
-                                    <asp:BoundField DataField="content" HeaderText="内容" SortExpression="content" />
-                                    <asp:BoundField DataField="score" HeaderText="分数" SortExpression="score" />
-                                    <asp:BoundField DataField="comment" HeaderText="评论" SortExpression="comment" />
-                                    <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
-                                    <asp:CommandField HeaderText="删除" ShowDeleteButton="True" />
-                                    <asp:ButtonField HeaderText="插入" Text="插入" CommandName="Insert" />
+                                    <asp:BoundField DataField="student" HeaderText="student" ReadOnly="True" 
+                                        SortExpression="student" />
+                                    <asp:BoundField DataField="problem" HeaderText="problem" ReadOnly="True" 
+                                        SortExpression="problem" />
+                                    <asp:BoundField DataField="content" HeaderText="content" 
+                                        SortExpression="content" />
+                                    <asp:BoundField DataField="score" HeaderText="score" SortExpression="score" />
+                                    <asp:BoundField DataField="comment" HeaderText="comment" 
+                                        SortExpression="comment" />
+                                    <asp:BoundField DataField="major" HeaderText="major" SortExpression="major" />
+                                    <asp:BoundField DataField="state" HeaderText="state" SortExpression="state" />
+                                    <asp:CommandField HeaderText="操作" ShowDeleteButton="True" 
+                                        ShowEditButton="True" />
+                                    <asp:ButtonField CommandName="Insert" HeaderText="插入" Text="插入" />
                                 </Columns>
                                 <EmptyDataTemplate>
                                     <asp:DetailsView ID="DetailsView7" runat="server" AutoGenerateRows="False" DataKeyNames="student,problem"
