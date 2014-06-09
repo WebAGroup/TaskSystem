@@ -177,9 +177,6 @@
     <Compile Include="DataAccess\CourseManager.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataAccess\DataBaseAccess.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DataAccess\DataClasses.designer.cs">
       <DependentUpon>DataClasses.dbml</DependentUpon>
       <DesignTime>True</DesignTime>

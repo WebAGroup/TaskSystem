@@ -6,8 +6,9 @@ using TaskSystem.DataAccess;
 using System.Linq;
 public class AssignmentManager {
 	public bool create(Assignment thisAssignment){ // 创建作业
-        DataBaseAccess.da.Assignment.InsertOnSubmit(thisAssignment);
-        DataBaseAccess.da.SubmitChanges();
+        DataClassesDataContext da = new DataClassesDataContext();
+        da.Assignment.InsertOnSubmit(thisAssignment);
+        da.SubmitChanges();
         return true;
 	}
 

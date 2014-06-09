@@ -11,8 +11,9 @@ namespace TaskSystem.DataAccess
 
         public bool create(Problem obj)     // 新建问题
         {
-            DataBaseAccess.da.Problem.InsertOnSubmit(obj);
-            DataBaseAccess.da.SubmitChanges();
+            DataClassesDataContext da = new DataClassesDataContext();
+            da.Problem.InsertOnSubmit(obj);
+            da.SubmitChanges();
             return true;
         }
 

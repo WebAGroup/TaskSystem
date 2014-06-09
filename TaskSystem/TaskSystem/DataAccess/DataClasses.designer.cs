@@ -22,7 +22,7 @@ namespace TaskSystem.DataAccess
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DataSource")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="dbc23b1bbe25304f95bd0da33400cd3072")]
 	public partial class DataClassesDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -36,9 +36,6 @@ namespace TaskSystem.DataAccess
     partial void InsertAccessory(Accessory instance);
     partial void UpdateAccessory(Accessory instance);
     partial void DeleteAccessory(Accessory instance);
-    partial void InsertAnswer(Answer instance);
-    partial void UpdateAnswer(Answer instance);
-    partial void DeleteAnswer(Answer instance);
     partial void InsertAssignment(Assignment instance);
     partial void UpdateAssignment(Assignment instance);
     partial void DeleteAssignment(Assignment instance);
@@ -57,10 +54,13 @@ namespace TaskSystem.DataAccess
     partial void InsertTeacher(Teacher instance);
     partial void UpdateTeacher(Teacher instance);
     partial void DeleteTeacher(Teacher instance);
+    partial void InsertAnswer(Answer instance);
+    partial void UpdateAnswer(Answer instance);
+    partial void DeleteAnswer(Answer instance);
     #endregion
 		
 		public DataClassesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DataSourceConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["dbc23b1bbe25304f95bd0da33400cd3072ConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -102,14 +102,6 @@ namespace TaskSystem.DataAccess
 			get
 			{
 				return this.GetTable<Accessory>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Answer> Answer
-		{
-			get
-			{
-				return this.GetTable<Answer>();
 			}
 		}
 		
@@ -158,6 +150,14 @@ namespace TaskSystem.DataAccess
 			get
 			{
 				return this.GetTable<Teacher>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Answer> Answer
+		{
+			get
+			{
+				return this.GetTable<Answer>();
 			}
 		}
 	}
@@ -408,294 +408,6 @@ namespace TaskSystem.DataAccess
 					if ((value != null))
 					{
 						value.Accessory.Add(this);
-						this._student = value.username;
-					}
-					else
-					{
-						this._student = default(string);
-					}
-					this.SendPropertyChanged("Student1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Answer")]
-	public partial class Answer : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _student;
-		
-		private int _problem;
-		
-		private string _content;
-		
-		private System.Nullable<float> _score;
-		
-		private string _comment;
-		
-		private string _major;
-		
-		private string _state;
-		
-		private EntityRef<Problem> _Problem1;
-		
-		private EntityRef<Student> _Student1;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnstudentChanging(string value);
-    partial void OnstudentChanged();
-    partial void OnproblemChanging(int value);
-    partial void OnproblemChanged();
-    partial void OncontentChanging(string value);
-    partial void OncontentChanged();
-    partial void OnscoreChanging(System.Nullable<float> value);
-    partial void OnscoreChanged();
-    partial void OncommentChanging(string value);
-    partial void OncommentChanged();
-    partial void OnmajorChanging(string value);
-    partial void OnmajorChanged();
-    partial void OnstateChanging(string value);
-    partial void OnstateChanged();
-    #endregion
-		
-		public Answer()
-		{
-			this._Problem1 = default(EntityRef<Problem>);
-			this._Student1 = default(EntityRef<Student>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_student", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string student
-		{
-			get
-			{
-				return this._student;
-			}
-			set
-			{
-				if ((this._student != value))
-				{
-					if (this._Student1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnstudentChanging(value);
-					this.SendPropertyChanging();
-					this._student = value;
-					this.SendPropertyChanged("student");
-					this.OnstudentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_problem", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int problem
-		{
-			get
-			{
-				return this._problem;
-			}
-			set
-			{
-				if ((this._problem != value))
-				{
-					if (this._Problem1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnproblemChanging(value);
-					this.SendPropertyChanging();
-					this._problem = value;
-					this.SendPropertyChanged("problem");
-					this.OnproblemChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_content", DbType="NVarChar(4000)")]
-		public string content
-		{
-			get
-			{
-				return this._content;
-			}
-			set
-			{
-				if ((this._content != value))
-				{
-					this.OncontentChanging(value);
-					this.SendPropertyChanging();
-					this._content = value;
-					this.SendPropertyChanged("content");
-					this.OncontentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_score", DbType="Real")]
-		public System.Nullable<float> score
-		{
-			get
-			{
-				return this._score;
-			}
-			set
-			{
-				if ((this._score != value))
-				{
-					this.OnscoreChanging(value);
-					this.SendPropertyChanging();
-					this._score = value;
-					this.SendPropertyChanged("score");
-					this.OnscoreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_comment", DbType="NVarChar(1024)")]
-		public string comment
-		{
-			get
-			{
-				return this._comment;
-			}
-			set
-			{
-				if ((this._comment != value))
-				{
-					this.OncommentChanging(value);
-					this.SendPropertyChanging();
-					this._comment = value;
-					this.SendPropertyChanged("comment");
-					this.OncommentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_major", DbType="NVarChar(50)", CanBeNull=false)]
-		public string major
-		{
-			get
-			{
-				return this._major;
-			}
-			set
-			{
-				if ((this._major != value))
-				{
-					this.OnmajorChanging(value);
-					this.SendPropertyChanging();
-					this._major = value;
-					this.SendPropertyChanged("major");
-					this.OnmajorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="NVarChar(50)", CanBeNull=false)]
-		public string state
-		{
-			get
-			{
-				return this._state;
-			}
-			set
-			{
-				if ((this._state != value))
-				{
-					this.OnstateChanging(value);
-					this.SendPropertyChanging();
-					this._state = value;
-					this.SendPropertyChanged("state");
-					this.OnstateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Problem_Answer", Storage="_Problem1", ThisKey="problem", OtherKey="id", IsForeignKey=true)]
-		public Problem Problem1
-		{
-			get
-			{
-				return this._Problem1.Entity;
-			}
-			set
-			{
-				Problem previousValue = this._Problem1.Entity;
-				if (((previousValue != value) 
-							|| (this._Problem1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Problem1.Entity = null;
-						previousValue.Answer.Remove(this);
-					}
-					this._Problem1.Entity = value;
-					if ((value != null))
-					{
-						value.Answer.Add(this);
-						this._problem = value.id;
-					}
-					else
-					{
-						this._problem = default(int);
-					}
-					this.SendPropertyChanged("Problem1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Answer", Storage="_Student1", ThisKey="student", OtherKey="username", IsForeignKey=true)]
-		public Student Student1
-		{
-			get
-			{
-				return this._Student1.Entity;
-			}
-			set
-			{
-				Student previousValue = this._Student1.Entity;
-				if (((previousValue != value) 
-							|| (this._Student1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Student1.Entity = null;
-						previousValue.Answer.Remove(this);
-					}
-					this._Student1.Entity = value;
-					if ((value != null))
-					{
-						value.Answer.Add(this);
 						this._student = value.username;
 					}
 					else
@@ -1553,9 +1265,9 @@ namespace TaskSystem.DataAccess
 		
 		private EntitySet<Accessory> _Accessory;
 		
-		private EntitySet<Answer> _Answer;
-		
 		private EntitySet<Student_Course> _Student_Course;
+		
+		private EntitySet<Answer> _Answer;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -1574,8 +1286,8 @@ namespace TaskSystem.DataAccess
 		public Student()
 		{
 			this._Accessory = new EntitySet<Accessory>(new Action<Accessory>(this.attach_Accessory), new Action<Accessory>(this.detach_Accessory));
-			this._Answer = new EntitySet<Answer>(new Action<Answer>(this.attach_Answer), new Action<Answer>(this.detach_Answer));
 			this._Student_Course = new EntitySet<Student_Course>(new Action<Student_Course>(this.attach_Student_Course), new Action<Student_Course>(this.detach_Student_Course));
+			this._Answer = new EntitySet<Answer>(new Action<Answer>(this.attach_Answer), new Action<Answer>(this.detach_Answer));
 			OnCreated();
 		}
 		
@@ -1672,19 +1384,6 @@ namespace TaskSystem.DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Answer", Storage="_Answer", ThisKey="username", OtherKey="student")]
-		public EntitySet<Answer> Answer
-		{
-			get
-			{
-				return this._Answer;
-			}
-			set
-			{
-				this._Answer.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Student_Course", Storage="_Student_Course", ThisKey="username", OtherKey="student")]
 		public EntitySet<Student_Course> Student_Course
 		{
@@ -1695,6 +1394,19 @@ namespace TaskSystem.DataAccess
 			set
 			{
 				this._Student_Course.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Answer", Storage="_Answer", ThisKey="username", OtherKey="student")]
+		public EntitySet<Answer> Answer
+		{
+			get
+			{
+				return this._Answer;
+			}
+			set
+			{
+				this._Answer.Assign(value);
 			}
 		}
 		
@@ -1730,18 +1442,6 @@ namespace TaskSystem.DataAccess
 			entity.Student1 = null;
 		}
 		
-		private void attach_Answer(Answer entity)
-		{
-			this.SendPropertyChanging();
-			entity.Student1 = this;
-		}
-		
-		private void detach_Answer(Answer entity)
-		{
-			this.SendPropertyChanging();
-			entity.Student1 = null;
-		}
-		
 		private void attach_Student_Course(Student_Course entity)
 		{
 			this.SendPropertyChanging();
@@ -1749,6 +1449,18 @@ namespace TaskSystem.DataAccess
 		}
 		
 		private void detach_Student_Course(Student_Course entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student1 = null;
+		}
+		
+		private void attach_Answer(Answer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student1 = this;
+		}
+		
+		private void detach_Answer(Answer entity)
 		{
 			this.SendPropertyChanging();
 			entity.Student1 = null;
@@ -2058,6 +1770,294 @@ namespace TaskSystem.DataAccess
 		{
 			this.SendPropertyChanging();
 			entity.Teacher1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Answer")]
+	public partial class Answer : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _student;
+		
+		private int _problem;
+		
+		private string _content;
+		
+		private System.Nullable<float> _score;
+		
+		private string _comment;
+		
+		private string _major;
+		
+		private string _state;
+		
+		private EntityRef<Problem> _Problem1;
+		
+		private EntityRef<Student> _Student1;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnstudentChanging(string value);
+    partial void OnstudentChanged();
+    partial void OnproblemChanging(int value);
+    partial void OnproblemChanged();
+    partial void OncontentChanging(string value);
+    partial void OncontentChanged();
+    partial void OnscoreChanging(System.Nullable<float> value);
+    partial void OnscoreChanged();
+    partial void OncommentChanging(string value);
+    partial void OncommentChanged();
+    partial void OnmajorChanging(string value);
+    partial void OnmajorChanged();
+    partial void OnstateChanging(string value);
+    partial void OnstateChanged();
+    #endregion
+		
+		public Answer()
+		{
+			this._Problem1 = default(EntityRef<Problem>);
+			this._Student1 = default(EntityRef<Student>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_student", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string student
+		{
+			get
+			{
+				return this._student;
+			}
+			set
+			{
+				if ((this._student != value))
+				{
+					if (this._Student1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnstudentChanging(value);
+					this.SendPropertyChanging();
+					this._student = value;
+					this.SendPropertyChanged("student");
+					this.OnstudentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_problem", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int problem
+		{
+			get
+			{
+				return this._problem;
+			}
+			set
+			{
+				if ((this._problem != value))
+				{
+					if (this._Problem1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnproblemChanging(value);
+					this.SendPropertyChanging();
+					this._problem = value;
+					this.SendPropertyChanged("problem");
+					this.OnproblemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_content", DbType="NVarChar(4000)")]
+		public string content
+		{
+			get
+			{
+				return this._content;
+			}
+			set
+			{
+				if ((this._content != value))
+				{
+					this.OncontentChanging(value);
+					this.SendPropertyChanging();
+					this._content = value;
+					this.SendPropertyChanged("content");
+					this.OncontentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_score", DbType="Real")]
+		public System.Nullable<float> score
+		{
+			get
+			{
+				return this._score;
+			}
+			set
+			{
+				if ((this._score != value))
+				{
+					this.OnscoreChanging(value);
+					this.SendPropertyChanging();
+					this._score = value;
+					this.SendPropertyChanged("score");
+					this.OnscoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_comment", DbType="NVarChar(1024)")]
+		public string comment
+		{
+			get
+			{
+				return this._comment;
+			}
+			set
+			{
+				if ((this._comment != value))
+				{
+					this.OncommentChanging(value);
+					this.SendPropertyChanging();
+					this._comment = value;
+					this.SendPropertyChanged("comment");
+					this.OncommentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_major", DbType="NVarChar(50)")]
+		public string major
+		{
+			get
+			{
+				return this._major;
+			}
+			set
+			{
+				if ((this._major != value))
+				{
+					this.OnmajorChanging(value);
+					this.SendPropertyChanging();
+					this._major = value;
+					this.SendPropertyChanged("major");
+					this.OnmajorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="NVarChar(50)")]
+		public string state
+		{
+			get
+			{
+				return this._state;
+			}
+			set
+			{
+				if ((this._state != value))
+				{
+					this.OnstateChanging(value);
+					this.SendPropertyChanging();
+					this._state = value;
+					this.SendPropertyChanged("state");
+					this.OnstateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Problem_Answer", Storage="_Problem1", ThisKey="problem", OtherKey="id", IsForeignKey=true)]
+		public Problem Problem1
+		{
+			get
+			{
+				return this._Problem1.Entity;
+			}
+			set
+			{
+				Problem previousValue = this._Problem1.Entity;
+				if (((previousValue != value) 
+							|| (this._Problem1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Problem1.Entity = null;
+						previousValue.Answer.Remove(this);
+					}
+					this._Problem1.Entity = value;
+					if ((value != null))
+					{
+						value.Answer.Add(this);
+						this._problem = value.id;
+					}
+					else
+					{
+						this._problem = default(int);
+					}
+					this.SendPropertyChanged("Problem1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Answer", Storage="_Student1", ThisKey="student", OtherKey="username", IsForeignKey=true)]
+		public Student Student1
+		{
+			get
+			{
+				return this._Student1.Entity;
+			}
+			set
+			{
+				Student previousValue = this._Student1.Entity;
+				if (((previousValue != value) 
+							|| (this._Student1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Student1.Entity = null;
+						previousValue.Answer.Remove(this);
+					}
+					this._Student1.Entity = value;
+					if ((value != null))
+					{
+						value.Answer.Add(this);
+						this._student = value.username;
+					}
+					else
+					{
+						this._student = default(string);
+					}
+					this.SendPropertyChanged("Student1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
