@@ -1,15 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainFrame.Master" AutoEventWireup="true" CodeBehind="OneAssignment.aspx.cs" Inherits="TaskSystem.OneProblem" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <link rel="stylesheet" href="css/Assignment.css"/>
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <p style="text-align: right; color: #0066FF">
-        [
+       <div class="title"> 
+       [
         作业<asp:Label ID="AssignmentnumLabel" runat="server" 
             style="font-weight: 700" Text="Label"></asp:Label>
         ]问题列表&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        <asp:LinkButton ID="AddProLinkButton" runat="server" 
-            onclick="AddProLinkButton_Click" >添加问题</asp:LinkButton>
-    </p>
+        </div>
+
     <asp:GridView ID="OneProblemGridView" runat="server" 
         AutoGenerateColumns="False" CellPadding="4" 
         DataSourceID="LinqDataSource1" ForeColor="#333333" GridLines="None" style="text-align: left; margin-left: 270px;" 
@@ -21,12 +21,8 @@
                 SortExpression="title" ReadOnly="True" />
             <asp:BoundField DataField="descrip" HeaderText="说明" ReadOnly="True" 
                 SortExpression="descrip" />
-            <asp:TemplateField HeaderText="操作">
-                <ItemTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" 
-                        CommandName="Delete" OnClientClick="return confirm('确定要删除该问题吗？')" Text="删除"></asp:LinkButton>
-                </ItemTemplate>
-            </asp:TemplateField>
+            <asp:ButtonField CommandName="Delete" HeaderText="操作" ShowHeader="True" 
+                Text="删除" />
             <asp:HyperLinkField DataNavigateUrlFields="id" 
                 DataNavigateUrlFormatString="OneProblem.aspx?problemid={0}" 
                 Text="查看" />
@@ -42,6 +38,12 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
+
+      <div class="linkButton">
+           <asp:LinkButton ID="AddProLinkButton" runat="server" 
+            onclick="AddProLinkButton_Click" >添加问题</asp:LinkButton>
+        </div>
+
     <asp:LinqDataSource ID="LinqDataSource1" runat="server" 
         ContextTypeName="TaskSystem.DataAccess.DataClassesDataContext" 
         EntityTypeName="" TableName="Problem" Where="assignment == @assignment" 
@@ -52,9 +54,7 @@
         </WhereParameters>
     </asp:LinqDataSource>
     <br />
-        <asp:Panel ID="AProPanel" runat="server" BorderColor="#CCCCCC" Height="189px" 
-            style="margin-left: 250px" Width="332px" Visible="False" 
-            BorderStyle="Outset">
+        <asp:Panel ID="AProPanel" runat="server" class="assignFrame" Visible="False">
             标题：<asp:TextBox ID="AProtitleTextBox" runat="server" Height="29px" TextMode="MultiLine" 
                 Width="263px"></asp:TextBox>
             <br />
@@ -63,11 +63,9 @@
                 Width="262px"></asp:TextBox>
             <br />
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="AProSureButton" runat="server"  Text="确定" 
-                onclick="AProSureButton_Click" />
-            &nbsp;&nbsp;&nbsp;
+                onclick="AProSureButton_Click" class="AddButton"/>
             <asp:Button ID="AProQuitButton" runat="server" Text="取消" 
-                onclick="AProQuitButton_Click" />
+                onclick="AProQuitButton_Click" class="DeleteButton"/>
         </asp:Panel>
          </asp:Content>

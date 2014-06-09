@@ -1,20 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainFrame.master" AutoEventWireup="true" CodeBehind="AllAssignment.aspx.cs" Inherits="TaskSystem.AllAssignment" %>
-<asp:Content ID="Content1" runat="server" 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="css/Assignment.css"/>
+</asp:Content>
+
+<asp:Content ID="Content2" runat="server" 
     contentplaceholderid="ContentPlaceHolder1">
-    <p style="text-align: right; color: #0066FF">
+        <div class="title">
         [
         <asp:Label ID="allassigncoursenameLabel" runat="server" 
             style="font-weight: 700" Text="Label"></asp:Label>
-        ]所有作业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        <asp:LinkButton ID="AddAssignmentLinkButton" runat="server" 
-            onclick="AddAssignmentLinkButton_Click">添加作业</asp:LinkButton>
-    </p>
+        ]所有作业
+        </div>
+
+        
     <p style="text-align: center; color: #0066FF">
         <asp:GridView ID="AllAssignmentGridView" runat="server" CellPadding="4" ForeColor="#333333" 
             GridLines="None" AllowPaging="True" AutoGenerateColumns="False" 
             DataSourceID="LinqDataSource1" DataKeyNames="id" 
             onrowdeleting="AllAssignmentGridView_RowDeleting" 
-            style="margin-left: 326px" Width="477px"  >
+            style="margin-left: 326px; text-align:left" Width="477px"  >
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="number" HeaderText="次数" ReadOnly="True" 
@@ -22,12 +26,7 @@
                 <asp:HyperLinkField DataNavigateUrlFields="id,number" 
                     DataNavigateUrlFormatString="OneAssignment.aspx?Assignmentid={0}&amp;Assignmentnum={1}" 
                     DataTextField="title" HeaderText="标题" />
-                <asp:TemplateField HeaderText="操作">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" 
-                            CommandName="Delete" OnClientClick="return confirm('确定要删除该次作业吗？')" Text="删除" ></asp:LinkButton>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                <asp:CommandField HeaderText="操作" ShowDeleteButton="True" ShowHeader="True" />
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -50,4 +49,9 @@
             </WhereParameters>
         </asp:LinqDataSource>
     </p>
+
+    <div class="linkButton">
+            <asp:LinkButton ID="AddAssignmentLinkButton" runat="server" 
+            onclick="AddAssignmentLinkButton_Click">添加作业</asp:LinkButton>
+        </div>
 </asp:Content>

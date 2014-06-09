@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainFrame.master" AutoEventWireup="true" CodeBehind="OneProblem.aspx.cs" Inherits="TaskSystem.OneAssignment" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="css/Assignment.css"/>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p>
         专业：<asp:TextBox ID="majorTextBox" runat="server" Width="81px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp; 学生姓名：<asp:TextBox ID="StuNameTextBox" runat="server" Width="81px"></asp:TextBox>
@@ -8,7 +12,7 @@
             <asp:ListItem Value="1">已批改</asp:ListItem>
         </asp:DropDownList>
 &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="SearchButton" runat="server" Text="查询" />
+        <asp:Button ID="SearchButton" runat="server" Text="查询" class="AddButton"/>
     </p>
     <p>
         <asp:QueryExtender ID="QueryExtender1" runat="server" 
@@ -28,7 +32,7 @@
         <asp:GridView ID="OneAssignmentGridView" runat="server" CellPadding="4" 
             ForeColor="#333333" GridLines="None" AllowPaging="True" 
             AutoGenerateColumns="False" DataSourceID="LinqDataSource1" 
-            DataKeyNames="student,problem" style="margin-left: 216px" Width="647px">
+            DataKeyNames="student,problem" style="margin-left: 216px; text-align:left" Width="647px">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="major" HeaderText="专业" ReadOnly="True" 

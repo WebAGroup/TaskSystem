@@ -1,0 +1,63 @@
+﻿body {
+    float:left;
+    font-family:Arial;
+}
+
+.title
+{
+    text-align:center;
+    font-size:16px;
+    float:none;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+.linkButton
+{
+    float:right;
+    font-size:16px;
+    margin-right:10px;
+    margin-bottom:10px;
+}
+
+.AddButton
+{
+    border-radius:6px;margin-left:10px;margin-bottom:20px;margin-top:5px;
+    background-color:#66B3FF; color:White; border:0;width:55px; height:25px; cursor:pointer;
+}
+
+.DeleteButton
+{
+    border-radius:6px;margin-left:10px;margin-bottom:20px;margin-top:5px;
+    background-color:#EA0000; color:White; border:0; width:55px; height:25px; cursor:pointer;
+}
+.AddCourseButton
+{
+    border-radius:6px;margin-right:10px;margin-bottom:10px;font-size:14px;
+    background-color:#66B3FF; color:White; border:0; width:100px; height:25px; cursor:pointer;
+}
+
+.DeleteCourseButton
+{
+    border-radius:6px;margin-right:10px;margin-bottom:10px;font-size:14px;
+    background-color:#EA0000; color:White; border:0; width:100px; height:25px; cursor:pointer;
+}
+
+
+.assignFrame
+{
+    margin-left: 250px;
+    margin-bottom:10px;
+    width:394px;
+    border-color:#CCCCCC;
+    border-style:outset;
+}
+
+.buttonFrame
+{
+    margin-left:5px;
+    margin-top:0px;
+}
+
+
+

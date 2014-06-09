@@ -58,11 +58,11 @@ F:\ASP.NET\TaskSystem[github]\TaskSystem\TaskSystem\bin\TaskSystem.pdb
 F:\ASP.NET\TaskSystem[github]\TaskSystem\TaskSystem\obj\Debug\TaskSystem.csprojResolveAssemblyReference.cache
 F:\ASP.NET\TaskSystem[github]\TaskSystem\TaskSystem\obj\Debug\TaskSystem.dll
 F:\ASP.NET\TaskSystem[github]\TaskSystem\TaskSystem\obj\Debug\TaskSystem.pdb
-D:\git_file\TaskSystem3\TaskSystem\TaskSystem\bin\TaskSystem.dll
-D:\git_file\TaskSystem3\TaskSystem\TaskSystem\bin\TaskSystem.pdb
-D:\git_file\TaskSystem3\TaskSystem\TaskSystem\obj\Debug\ResolveAssemblyReference.cache
-D:\git_file\TaskSystem3\TaskSystem\TaskSystem\obj\Debug\TaskSystem.dll
-D:\git_file\TaskSystem3\TaskSystem\TaskSystem\obj\Debug\TaskSystem.pdb
+D:\用户目录\Documents\GitHub\TaskSystem\TaskSystem\TaskSystem\bin\TaskSystem.dll
+D:\用户目录\Documents\GitHub\TaskSystem\TaskSystem\TaskSystem\bin\TaskSystem.pdb
+D:\用户目录\Documents\GitHub\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.csprojResolveAssemblyReference.cache
+D:\用户目录\Documents\GitHub\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.dll
+D:\用户目录\Documents\GitHub\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.pdb
 F:\ASP.NET\TaskSystem\TaskSystem\bin\TaskSystem.dll
 F:\ASP.NET\TaskSystem\TaskSystem\bin\TaskSystem.pdb
 F:\ASP.NET\TaskSystem\TaskSystem\obj\Debug\TaskSystem.csprojResolveAssemblyReference.cache
