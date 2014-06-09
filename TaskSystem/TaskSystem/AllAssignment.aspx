@@ -22,7 +22,12 @@
                 <asp:HyperLinkField DataNavigateUrlFields="id,number" 
                     DataNavigateUrlFormatString="OneAssignment.aspx?Assignmentid={0}&amp;Assignmentnum={1}" 
                     DataTextField="title" HeaderText="标题" />
-                <asp:CommandField HeaderText="操作" ShowDeleteButton="True" ShowHeader="True" />
+                <asp:TemplateField HeaderText="操作">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" 
+                            CommandName="Delete" OnClientClick="return confirm('确定要删除该次作业吗？')" Text="删除" ></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

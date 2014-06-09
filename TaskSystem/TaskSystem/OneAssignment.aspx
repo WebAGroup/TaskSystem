@@ -21,8 +21,12 @@
                 SortExpression="title" ReadOnly="True" />
             <asp:BoundField DataField="descrip" HeaderText="说明" ReadOnly="True" 
                 SortExpression="descrip" />
-            <asp:ButtonField CommandName="Delete" HeaderText="操作" ShowHeader="True" 
-                Text="删除" />
+            <asp:TemplateField HeaderText="操作">
+                <ItemTemplate>
+                    <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" 
+                        CommandName="Delete" OnClientClick="return confirm('确定要删除该问题吗？')" Text="删除"></asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:HyperLinkField DataNavigateUrlFields="id" 
                 DataNavigateUrlFormatString="OneProblem.aspx?problemid={0}" 
                 Text="查看" />
