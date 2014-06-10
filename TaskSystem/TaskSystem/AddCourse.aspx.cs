@@ -16,7 +16,7 @@ namespace TaskSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DeleteCourseSureButton.Attributes.Add("onclick", "return confirm('确定要删吗?');");            
+            DeleteCourseSureButton.Attributes.Add("onclick", "return confirm('确定要删吗?');");
         }
 
         protected void AddCourseButton_Click(object sender, EventArgs e)
@@ -29,7 +29,6 @@ namespace TaskSystem
         {
             tea = (Teacher)Session["teacher"];
             Course newcourse = new Course();
-
             if (cournumTextBox.Text == "")
                 CoursenumLabel.Visible = true;
 

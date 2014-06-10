@@ -8,6 +8,26 @@
         课程：<asp:Label ID="coursenameLabel" runat="server" Text="Label"></asp:Label>
         <br />
         <br />
+        作业次数：<asp:DropDownList ID="numberDropDownList" runat="server" Height="16px" 
+            Width="36px">
+            <asp:ListItem Value="1"></asp:ListItem>
+            <asp:ListItem Value="2"></asp:ListItem>
+            <asp:ListItem Value="3"></asp:ListItem>
+            <asp:ListItem Value="4"></asp:ListItem>
+            <asp:ListItem Value="5"></asp:ListItem>
+            <asp:ListItem Value="6"></asp:ListItem>
+            <asp:ListItem Value="7"></asp:ListItem>
+            <asp:ListItem Value="8"></asp:ListItem>
+            <asp:ListItem Value="9"></asp:ListItem>
+            <asp:ListItem Value="10"></asp:ListItem>
+            <asp:ListItem Value="11"></asp:ListItem>
+            <asp:ListItem Value="12"></asp:ListItem>
+            <asp:ListItem Value="13"></asp:ListItem>
+            <asp:ListItem Value="15"></asp:ListItem>
+            <asp:ListItem Value="16"></asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <br />
     作业标题：<asp:TextBox ID="assigntitleTextBox" runat="server"></asp:TextBox>
         <br />
         <br />

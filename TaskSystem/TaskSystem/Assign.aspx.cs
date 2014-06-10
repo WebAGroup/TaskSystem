@@ -57,13 +57,15 @@ namespace TaskSystem
 
             //显示课程信息
             assignmentcourseLabel.Text = "课程：" + course.name;
-            assignmentLabel.Text = "<br>标题：" + assigntitleTextBox.Text + "<br>截止日期：" + date + "<br>说明：" + assigndescriTextBox.Text;
+            assignmentLabel.Text = "<br>次数：" + numberDropDownList.SelectedItem.Value + "<br>标题：" + assigntitleTextBox.Text + "<br>截止日期：" + date + "<br>说明：" + assigndescriTextBox.Text;
 
+            /*
             //获得课程作业数
-            List<Assignment> assignmentnum = assignMan.getAssignment(course.num);
+            List<Assignment> assignmentnum = assignMan.getAssignment(course.num);*/
 
             //添加assignment
-            assignment.number = assignmentnum.Count + 1;
+            //assignment.number = assignmentnum.Count + 1;
+            assignment.number = int.Parse(numberDropDownList.SelectedItem.Value);
             assignment.title = assigntitleTextBox.Text;
             assignment.descrip = assigndescriTextBox.Text;
             assignment.start_time = DateTime.Now;
