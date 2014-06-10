@@ -11,15 +11,15 @@
     作业标题：<asp:TextBox ID="assigntitleTextBox" runat="server"></asp:TextBox>
         <br />
         <br />
-    截止日期：<asp:TextBox ID="datelineTextBox" runat="server"></asp:TextBox>
+    截止日期：<asp:TextBox ID="datelineTextBox" runat="server" TextMode="Date"></asp:TextBox>
         <br />
         <br />
     作业说明：<asp:TextBox ID="assigndescriTextBox" runat="server" Height="62px" 
-            TextMode="MultiLine" Width="238px"></asp:TextBox><br />
-        &nbsp;<asp:Button ID="AssignSureButton" runat="server" Text="确定" 
+            TextMode="MultiLine" Width="238px"></asp:TextBox>
+        <br />
+        <asp:Button ID="AssignSureButton" runat="server" Text="确定" 
             onclick="AssignSureButton_Click" class="AddButton" 
             style="margin-left: 249px; height: 21px;"/>
-        &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="AssignQuitButton" runat="server" class="DeleteButton" 
             onclick="AssignQuitButton_Click" Text="取消" />
     </asp:Panel><br />
@@ -37,6 +37,8 @@
         <p style="text-align: left; color: #0066FF">
         <asp:Label ID="assignmentLabel" runat="server" style="text-align: center" Text="Label"></asp:Label>
         </p>
+        <asp:Label ID="NoProblemLabel" runat="server" style="color: #FF0000" 
+            Text="布置一次空作业是没有意义的哦，加个问题吧！" Visible="False"></asp:Label>
         <br />
         <asp:RadioButtonList ID="SelectProRadioButtonList" runat="server" 
             ondatabinding="Page_Load">

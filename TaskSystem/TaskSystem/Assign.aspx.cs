@@ -81,6 +81,7 @@ namespace TaskSystem
 
         protected void AddPro_Click(object sender, EventArgs e)
         {
+            NoProblemLabel.Visible = false;
             AProPanel.Visible = true;
         }
 
@@ -172,11 +173,18 @@ namespace TaskSystem
         {
             //将问题存入数据库
             problems = (List<Problem>)Session["problems"];
-            foreach (Problem Apro in problems)
+            if (problems.Count == 0)
             {
-                ProMan.create(Apro);
+                NoProblemLabel.Visible = true;
             }
-            Response.Redirect("AllAssignment.aspx?Coursenum=" + Request.QueryString["Coursenum"]);
+            else
+            {
+                foreach (Problem Apro in problems)
+                {
+                    ProMan.create(Apro);
+                }
+                Response.Redirect("AllAssignment.aspx?Coursenum=" + Request.QueryString["Coursenum"]);
+            }
         }
 
         protected void ProblemsQuitButton_Click(object sender, EventArgs e)

@@ -8,8 +8,9 @@
     <asp:Label ID="AnswerLabel" runat="server" Text="Label"></asp:Label>
     <br />
     <br />
-    <br />
     评分：<asp:TextBox ID="scoreTextBox" runat="server" Width="98px"></asp:TextBox>
+    <asp:Label ID="scoreLabel" runat="server" style="color: #FF0000" 
+        Text="给个分可能会好点哦！" Visible="False"></asp:Label>
     <br />
     <br />
     评语： 

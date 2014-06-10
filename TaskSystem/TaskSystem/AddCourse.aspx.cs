@@ -30,12 +30,15 @@ namespace TaskSystem
             tea = (Teacher)Session["teacher"];
             Course newcourse = new Course();
 
-            if (cournameTextBox.Text == "" || cournumTextBox.Text == "")
+            if (cournumTextBox.Text == "")
+                CoursenumLabel.Visible = true;
+
+            else if (cournameTextBox.Text == "")
             {
-                Response.Write("<script>alert('课程名与课程编号皆不能为空!');location.href='AddCourse.aspx';</script>");
-                AddCoursePanel.Visible = true;
+                CoursenumLabel.Visible = false;
+                CoursenameLabel.Visible = true;
             }
-            else
+            else 
             {
                 newcourse.teacher = tea.username;
                 newcourse.name = cournameTextBox.Text;
@@ -48,7 +51,7 @@ namespace TaskSystem
                 CourMan.AddCourse(newcourse);
                 Response.Write("<script>alert('成功添加!');location.href='AddCourse.aspx';</script>");
                 //Response.Redirect("AddCourse.aspx");
-            }             
+            }
         }
 
         protected void AddCourseQuitButton_Click(object sender, EventArgs e)
