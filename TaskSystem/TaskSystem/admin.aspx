@@ -77,7 +77,7 @@
                             </asp:QueryExtender>
                             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
                                 AutoGenerateColumns="False" DataKeyNames="username" DataSourceID="LinqDataSource1"
-                                OnRowCommand="GridView1_RowCommand" Width="400px">
+                                OnRowCommand="GridView1_RowCommand" Width="400px"  >
                                 <Columns>
                                     <asp:BoundField DataField="username" HeaderText="账号" ReadOnly="True" SortExpression="username" />
                                     <asp:BoundField DataField="passwd" HeaderText="密码" SortExpression="passwd" />
@@ -212,14 +212,15 @@
                                     <asp:BoundField DataField="id" HeaderText="作业ID" InsertVisible="False" ReadOnly="True"
                                         SortExpression="id" />
                                     <asp:BoundField DataField="course" HeaderText="课程号" SortExpression="course" />
-                                    <asp:BoundField DataField="title" HeaderText="作业标题" SortExpression="title" />
-                                    <asp:BoundField DataField="descrip" HeaderText="作业描述" SortExpression="descrip" />
+                                    <asp:BoundField DataField="number" HeaderText="次数" SortExpression="number" />
+                                    <asp:BoundField DataField="title" HeaderText="title" SortExpression="title" />
+                                    <asp:BoundField DataField="descrip" HeaderText="描述" SortExpression="descrip" />
                                     <asp:BoundField DataField="start_time" HeaderText="开始时间" SortExpression="start_time" />
                                     <asp:BoundField DataField="end_time" HeaderText="结束时间" SortExpression="end_time" />
                                     <asp:BoundField DataField="major" HeaderText="专业" SortExpression="major" />
-                                    <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
-                                    <asp:CommandField HeaderText="删除" ShowDeleteButton="True" />
-                                    <asp:ButtonField HeaderText="插入" Text="插入" CommandName="Insert" />
+                                    <asp:CommandField HeaderText="操作" ShowEditButton="True" 
+                                        ShowDeleteButton="True" />
+                                    <asp:ButtonField CommandName="Insert" HeaderText="操作" Text="插入" />
                                 </Columns>
                                 <EmptyDataTemplate>
                                     <asp:DetailsView ID="DetailsView4" runat="server" AutoGenerateRows="False" DataKeyNames="id"
@@ -234,6 +235,8 @@
                                             <asp:BoundField DataField="start_time" HeaderText="start_time" SortExpression="start_time" />
                                             <asp:BoundField DataField="end_time" HeaderText="end_time" SortExpression="end_time" />
                                             <asp:BoundField DataField="major" HeaderText="major" SortExpression="major" />
+                                            <asp:BoundField DataField="number" HeaderText="number" 
+                                                SortExpression="number" />
                                             <asp:CommandField ShowInsertButton="True" />
                                         </Fields>
                                     </asp:DetailsView>
@@ -305,17 +308,17 @@
                                 AutoGenerateColumns="False" DataKeyNames="student,problem" DataSourceID="LinqDataSource6"
                                 OnRowCommand="GridView6_RowCommand">
                                 <Columns>
-                                    <asp:BoundField DataField="student" HeaderText="student" ReadOnly="True" 
+                                    <asp:BoundField DataField="student" HeaderText="学生账号" ReadOnly="True" 
                                         SortExpression="student" />
-                                    <asp:BoundField DataField="problem" HeaderText="problem" ReadOnly="True" 
+                                    <asp:BoundField DataField="problem" HeaderText="问题号" ReadOnly="True" 
                                         SortExpression="problem" />
-                                    <asp:BoundField DataField="content" HeaderText="content" 
+                                    <asp:BoundField DataField="content" HeaderText="内容" 
                                         SortExpression="content" />
-                                    <asp:BoundField DataField="score" HeaderText="score" SortExpression="score" />
-                                    <asp:BoundField DataField="comment" HeaderText="comment" 
+                                    <asp:BoundField DataField="score" HeaderText="分数" SortExpression="score" />
+                                    <asp:BoundField DataField="comment" HeaderText="评论" 
                                         SortExpression="comment" />
-                                    <asp:BoundField DataField="major" HeaderText="major" SortExpression="major" />
-                                    <asp:BoundField DataField="state" HeaderText="state" SortExpression="state" />
+                                    <asp:BoundField DataField="major" HeaderText="专业" SortExpression="major" />
+                                    <asp:BoundField DataField="state" HeaderText="状态" SortExpression="state" />
                                     <asp:CommandField HeaderText="操作" ShowDeleteButton="True" 
                                         ShowEditButton="True" />
                                     <asp:ButtonField CommandName="Insert" HeaderText="插入" Text="插入" />
@@ -330,6 +333,8 @@
                                             <asp:BoundField DataField="content" HeaderText="content" SortExpression="content" />
                                             <asp:BoundField DataField="score" HeaderText="score" SortExpression="score" />
                                             <asp:BoundField DataField="comment" HeaderText="comment" SortExpression="comment" />
+                                            <asp:BoundField DataField="major" HeaderText="major" SortExpression="major" />
+                                            <asp:BoundField DataField="state" HeaderText="state" SortExpression="state" />
                                             <asp:CommandField ShowInsertButton="True" />
                                         </Fields>
                                     </asp:DetailsView>

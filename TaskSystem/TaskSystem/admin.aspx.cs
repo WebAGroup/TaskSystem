@@ -256,7 +256,5 @@ namespace TaskSystem
             Panel7.Visible = false;
         }
 
-
-
     }
 }
