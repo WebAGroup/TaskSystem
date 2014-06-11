@@ -9,7 +9,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">
-        <label id="header_text">上载作业： 第三次作业 客户端技术  </label>
+    <!--  
+        <label id="header_text">上载作业： 第三次作业 客户端技术   </label>
+    -->
+        <asp:Label ID="header_text" runat="server" Text="上载作业： 第三次作业 客户端技术   "></asp:Label>
     </div>
     <div class="Control1" id="Control1" runat="server">
         <asp:Button ID="back" runat="server" Text="返回" onclick="back_Click"/>
@@ -18,25 +21,10 @@
     </div>
 
     <div class="homework" id="PlaceHolder1" runat="server">
-<!-- 
-        <p>1. Web是一种典型的分布式应用框架,请叙述服务器端动态Web页面的工作原理</p>
-        <p>
-            <textarea name="area1" cols="120" rows="15"></textarea>
-        </p>
-        <hr />
-        <p>2. C#数据类型分为哪两大类,请叙述这两类数据的区别</p>
-        <p>
-            <textarea name="area2" cols="120" rows="15"></textarea>
-        </p>
-        <hr />
-        <p>3. ASP.NET基本内置对象包括哪些,请分别综述其功能</p>
-        <p>
-            <textarea name="area3" cols="120" rows="15"></textarea>
-        </p>
- -->
     </div>
 
-    &nbsp;&nbsp;添加附件：<!-- <input type="file" runat="Server" id="file" name="file"/> -->
+    &nbsp;&nbsp;<!-- <input type="file" runat="Server" id="file" name="file"/> -->
+    <asp:Label ID="fileTips" runat="server" Text="添加附件："></asp:Label>
     <asp:FileUpload ID="FileUpload2" runat="server" />
     <hr />
 <!-- 

@@ -24,42 +24,56 @@ namespace TaskSystem
         {
             //获取作业id
             id = Request.QueryString["AssignmentId"];
+            header_text.Text = Request.QueryString["AssignmentTitle"];
             ProblemManager ProblemMan = new ProblemManager();
             
             stu = (Student)Session["student"];
-
-            //动态创建问题及回答区域
             ProblemList = ProblemMan.GetProblem(System.Int32.Parse(id));
-            //加载上次答案
-            
-            AnswerList = AnswerMan.GetAnswerList(stu.username, System.Int32.Parse(id));
-            accessory = AccessoryMan.GetAccessory(stu.username, System.Int32.Parse(id));
-             
-            for (int i = 0; i < ProblemList.Count; i++)
-            {
-                string pro = "<p>" + ProblemList[i].title + "</p>";
-                Control ct = ParseControl(pro);
-                PlaceHolder1.Controls.Add(ct);
 
-                string an = "<p><textarea cols='120' rows='15' name='TA' id='TA" + i + "'></textarea></p>";
-                //加载已有答案
-                
-                if (AnswerList != null)
+            if (ProblemList.Count != 0)
+            {
+                //动态创建问题及回答区域
+                //加载上次答案
+                AnswerList = AnswerMan.GetAnswerList(stu.username, System.Int32.Parse(id));
+                accessory = AccessoryMan.GetAccessory(stu.username, System.Int32.Parse(id));
+
+                for (int i = 0; i < ProblemList.Count; i++)
                 {
-                    an = "<p><textarea cols='120' rows='15' name='TA' id='TA" + i + "'>" + AnswerList[i].content + "</textarea></p>";
-                    submitFlag = false;
-                }
-                
-                Control ct2 = ParseControl(an);
-                PlaceHolder1.Controls.Add(ct2);
-            }
+                    string pro = "<p>" + ProblemList[i].title + "</p>";
+                    Control ct = ParseControl(pro);
+                    PlaceHolder1.Controls.Add(ct);
 
-            /*加载已有附件
-            if (accessory != null)
-            {
-                Request.Files.
+                    string an = "<p><textarea cols='120' rows='15' name='TA' id='TA" + i + "'></textarea></p>";
+
+                    //加载已有答案
+                    if (AnswerList != null)
+                    {
+                        an = "<p><textarea cols='120' rows='15' name='TA' id='TA" + i + "'>" + AnswerList[i].content + "</textarea></p>";
+                        submitFlag = false;
+                    }
+
+                    Control ct2 = ParseControl(an);
+                    PlaceHolder1.Controls.Add(ct2);
+                }
+
+                /*加载已有附件
+                if (accessory != null)
+                {
+                    Request.Files.
+                }
+                */
             }
-            */
+            else
+            {
+                header_text.Text = "   逗你玩呢，哈哈哈哈。";
+                submit.Enabled = false;
+                submit2.Enabled = false;
+                export.Enabled = false;
+                export2.Enabled = false;
+                fileTips.Enabled = false;
+                FileUpload2.Enabled = false;
+            }
+            
         }
 
         protected void back2_Click(object sender, EventArgs e)
@@ -74,17 +88,10 @@ namespace TaskSystem
 
         protected void submit_Click(object sender, EventArgs e)
         {
-            //var submitFlag = false;
-            //Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "myJS", "submitFlag = confirm('确认要提交？')", true);
-            //Response.Write("<Script Language=JavaScript>submitFlag = confirm('确认要提交？');</Script>");
-
             string[] content = Request.Form.GetValues("TA");
-            //string content = string.Empty;
             for (int i = 0; i < ProblemList.Count; i++)
             {
                 Answer answer = new Answer();
-                //Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "myJS2", "content=document.getElementById('TA" + i + "').value", true);
-                //Response.Write("<Script Language=JavaScript>content=document.getElementById('TA" + i + "').value;</Script>");
                 answer.content = content[i];
                 answer.student = stu.username;
                 answer.problem = ProblemList[i].id;
@@ -96,7 +103,6 @@ namespace TaskSystem
                 {
                     AnswerList = new List<Answer>();
                 }
-                AnswerList.Clear();
                 AnswerList.Add(answer);
             }
 
@@ -148,13 +154,6 @@ namespace TaskSystem
                 Answer answer = new Answer();
                 //Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "myJS3", "content=document.getElementById('TA" + i + "').value", true); 
                 Response.Write("<Script Language=JavaScript>content=document.getElementById('TA" + i + "').value;</Script>");
-/*
-                for (int j = 0; j < content[i].Length; j++)
-                {
-                    content[i].Remove(content[i].IndexOf('<', j), content[i].IndexOf('>', j) - content[i].IndexOf('<', j) + 1);
-                }
-                answer.content = content[i];
-*/
                 answer.content = content[i];
                 AnswerList.Add(answer);
                 str += AnswerList[i].content + "\r\n";

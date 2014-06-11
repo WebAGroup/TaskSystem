@@ -13,6 +13,15 @@ namespace TaskSystem {
     public partial class WebForm1 {
         
         /// <summary>
+        /// header_text 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label header_text;
+        
+        /// <summary>
         /// Control1 控件。
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace TaskSystem {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputFile file;
+        
+        /// <summary>
+        /// fileTips 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label fileTips;
         
         /// <summary>
         /// FileUpload2 控件。

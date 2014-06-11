@@ -109,7 +109,7 @@ namespace TaskSystem
                         TreeNode NodeChild = new TreeNode();
                         NodeChild.Text = assignment.title;
                         node.ChildNodes.Add(NodeChild);
-                        NodeChild.NavigateUrl = "SubmitForm.aspx?AssignmentId=" + assignment.id;
+                        NodeChild.NavigateUrl = "SubmitForm.aspx?AssignmentId=" + assignment.id + "&AssignmentTitle=" + assignment.title; ;
                     }
                 }
 /*

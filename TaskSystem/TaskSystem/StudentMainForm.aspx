@@ -26,13 +26,15 @@
     <br />
     <br />
     <div id="first">
-    <asp:GridView ID="GridView1" runat="server" DataSource="<%#myArray2 %>" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" Caption="最新布置的作业" CaptionAlign="Top">
+    <asp:GridView ID="GridView1" runat="server" DataSource="<%# myArray2 %>" 
+            CellPadding="4" ForeColor="#333333" GridLines="None" 
+            AutoGenerateColumns="False" Caption="最新布置的作业" CaptionAlign="Top">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
                 <asp:BoundField DataField="course" HeaderText="课程" ReadOnly="True" 
                     SortExpression="course" />
-                <asp:HyperLinkField DataNavigateUrlFields="id" 
-                    DataNavigateUrlFormatString="SubmitForm.aspx?Assignmentid={0}" 
+                <asp:HyperLinkField DataNavigateUrlFields="id,title" 
+                    DataNavigateUrlFormatString="SubmitForm.aspx?Assignmentid={0}&amp;AssignmentTitle={1}" 
                     DataTextField="title" HeaderText="标题" />
                 <asp:BoundField DataField="start_time" HeaderText="开始时间" ReadOnly="True" 
                     SortExpression="start_time" />
@@ -54,13 +56,15 @@
     <br /><br />
 
     <div id="second">
-    <asp:GridView ID="GridView2" DataSource="<%#myArray %>" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" Caption="将要到期的作业" CaptionAlign="Top">
+    <asp:GridView ID="GridView2" DataSource="<%# myArray %>" runat="server" 
+            CellPadding="4" ForeColor="#333333" GridLines="None" 
+            AutoGenerateColumns="False" Caption="将要到期的作业" CaptionAlign="Top">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
                 <asp:BoundField DataField="course" HeaderText="课程" ReadOnly="True" 
                     SortExpression="course" />
-                <asp:HyperLinkField DataNavigateUrlFields="id" 
-                    DataNavigateUrlFormatString="SubmitForm.aspx?Assignmentid={0}" 
+                <asp:HyperLinkField DataNavigateUrlFields="id,title" 
+                    DataNavigateUrlFormatString="SubmitForm.aspx?Assignmentid={0}&amp;AssignmentTitle={1}" 
                     DataTextField="title" HeaderText="标题" />
                 <asp:BoundField DataField="start_time" HeaderText="开始时间" ReadOnly="True" 
                     SortExpression="start_time" />
@@ -81,13 +85,15 @@
     <br /><br />
 
     <div id="third">
-    <asp:GridView ID="GridView3" DataSource="<%#AssignmentList %>" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" Caption="全部课程作业" CaptionAlign="Top">
+    <asp:GridView ID="GridView3" DataSource="<%# AssignmentList %>" runat="server" 
+            CellPadding="4" ForeColor="#333333" GridLines="None" 
+            AutoGenerateColumns="False" Caption="全部课程作业" CaptionAlign="Top">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
                 <asp:BoundField DataField="course" HeaderText="课程" ReadOnly="True" 
                     SortExpression="course" />
-                <asp:HyperLinkField DataNavigateUrlFields="id" 
-                    DataNavigateUrlFormatString="SubmitForm.aspx?Assignmentid={0}" 
+                <asp:HyperLinkField DataNavigateUrlFields="id,title" 
+                    DataNavigateUrlFormatString="SubmitForm.aspx?Assignmentid={0}&amp;AssignmentTitle={1}" 
                     DataTextField="title" HeaderText="标题" />
                 <asp:BoundField DataField="start_time" HeaderText="开始时间" ReadOnly="True" 
                     SortExpression="start_time" />

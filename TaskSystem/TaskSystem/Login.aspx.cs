@@ -28,48 +28,54 @@ namespace TaskSystem
                             string UserName = Request.Form["TxtUserName"].ToString();
                             string UserPassword = Request.Form["TxtPassword"].ToString();
                             string Identity = Request.Form["DropExpiration"].ToString();
-                            StudentManager Student = new StudentManager();
-                            TeacherManager Teacher = new TeacherManager();
+                            StudentManager StudentMan = new StudentManager();
+                            TeacherManager TeacherMan = new TeacherManager();
+                            AdminManager AdminMan = new AdminManager();
 
-                            AdminManager am = new AdminManager();
-
-                            if (Identity.Equals("student"))
+                            try
                             {
-                                if (UserPassword != Student.GetStudent(UserName).passwd)
+                                if (Identity.Equals("student"))
                                 {
-                                    Response.Write("<Script Language=JavaScript>alert('密码或用户名错误，请重试！');</Script>");
+                                    if (UserPassword != StudentMan.GetStudent(UserName).passwd)
+                                    {
+                                        Response.Write("<Script Language=JavaScript>alert('密码或用户名错误，请重试！');</Script>");
+                                    }
+                                    else
+                                    {
+                                        Session["student"] = StudentMan.GetStudent(UserName);
+                                        Response.Redirect("StudentMainForm.aspx");
+                                    }
                                 }
-                                else
+
+                                else if (Identity.Equals("teacher"))
                                 {
-                                    Session["student"] = Student.GetStudent(UserName);
-                                    Response.Redirect("StudentMainForm.aspx");
+                                    if (UserPassword != TeacherMan.GetTeacher(UserName).passwd)
+                                    {
+                                        Response.Write("<Script Language=JavaScript>alert('密码或用户名错误，请重试！');</Script>");
+                                    }
+                                    else
+                                    {
+                                        Session["teacher"] = TeacherMan.GetTeacher(UserName);
+                                        Response.Redirect("AddCourse.aspx");
+                                    }
+                                }
+
+                                else if (Identity.Equals("admin"))
+                                {
+                                    if (UserPassword != AdminMan.GetAdmin(UserName).passwd)
+                                    {
+                                        Response.Write("<Script Language=JavaScript>alert('密码或用户名错误，请重试！');</Script>");
+                                    }
+                                    else
+                                    {
+                                        Session["admin"] = AdminMan.GetAdmin(UserName);
+                                        Response.Redirect("admin.aspx?user=" + UserName);
+                                    }
                                 }
                             }
-
-                            else if (Identity.Equals("teacher"))
+                            catch (System.Exception ex)
                             {
-                                if (UserPassword != Teacher.GetTeacher(UserName).passwd)
-                                {
-                                    Response.Write("<Script Language=JavaScript>alert('密码或用户名错误，请重试！');</Script>");
-                                }
-                                else
-                                {
-                                    Session["teacher"] = Teacher.GetTeacher(UserName);
-                                    Response.Redirect("AddCourse.aspx");
-                                }
-                            }
-
-                            else if (Identity.Equals("admin"))
-                            {
-                                if (UserPassword != am.GetAdmin(UserName).passwd)
-                                {
-                                    Response.Write("<Script Language=JavaScript>alert('密码或用户名错误，请重试！');</Script>");
-                                }
-                                else
-                                {
-                                    Session["admin"] = am.GetAdmin(UserName);
-                                    Response.Redirect("admin.aspx?user="+UserName);
-                                }
+                                Response.Write("<Script Language=JavaScript>alert('错误的身份选择！');</Script>");
                             }
 
                         }

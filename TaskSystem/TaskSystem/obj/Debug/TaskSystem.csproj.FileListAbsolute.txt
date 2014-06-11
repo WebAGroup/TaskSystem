@@ -73,3 +73,8 @@ E:\TaskSystem\TaskSystem\TaskSystem\TaskSystem\bin\TaskSystem.pdb
 E:\TaskSystem\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.csprojResolveAssemblyReference.cache
 E:\TaskSystem\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.dll
 E:\TaskSystem\TaskSystem\TaskSystem\TaskSystem\obj\Debug\TaskSystem.pdb
+D:\git_file\TaskSystem6\TaskSystem\TaskSystem\bin\TaskSystem.dll
+D:\git_file\TaskSystem6\TaskSystem\TaskSystem\bin\TaskSystem.pdb
+D:\git_file\TaskSystem6\TaskSystem\TaskSystem\obj\Debug\ResolveAssemblyReference.cache
+D:\git_file\TaskSystem6\TaskSystem\TaskSystem\obj\Debug\TaskSystem.dll
+D:\git_file\TaskSystem6\TaskSystem\TaskSystem\obj\Debug\TaskSystem.pdb

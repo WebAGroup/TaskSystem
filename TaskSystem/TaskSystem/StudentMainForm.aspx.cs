@@ -29,7 +29,10 @@ namespace TaskSystem
             if (CourseList.Count == 0)
                 Response.Redirect("SelectCourse.aspx");
 
-            AssignmentList = AssignmentMan.getAllAssignment();
+            foreach (Course course in CourseList)
+            {
+                AssignmentList.AddRange(AssignmentMan.getAssignment(course.num));
+            }
             if (!IsPostBack)
             {
                 GridView3.DataBind();

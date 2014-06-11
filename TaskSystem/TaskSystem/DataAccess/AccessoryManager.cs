@@ -9,6 +9,8 @@ namespace TaskSystem.DataAccess
     {
         public bool Create(Accessory accessory)
         {
+            if (accessory.adress.Length == 0)
+                return false;
             DataClassesDataContext da = new DataClassesDataContext();
             da.Accessory.InsertOnSubmit(accessory);
             da.SubmitChanges();
