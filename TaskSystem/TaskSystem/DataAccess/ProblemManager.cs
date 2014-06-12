@@ -87,5 +87,14 @@ namespace TaskSystem.DataAccess
             return true;
 
         }
+
+        public Problem GetProblemById(int id)
+        {
+            DataClassesDataContext da = new DataClassesDataContext();
+            var p = from s in da.Problem
+                    where s.id == id
+                    select s;
+            return p.FirstOrDefault();
+        }
     }
 }

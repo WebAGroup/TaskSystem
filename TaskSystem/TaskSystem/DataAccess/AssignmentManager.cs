@@ -59,4 +59,13 @@ public class AssignmentManager {
             ret.Add(n);
         return ret;
     }
+
+    public Assignment GetAssignmentByNum(int num)
+    {
+        DataClassesDataContext da = new DataClassesDataContext();
+        var a = from s in da.Assignment
+                where s.id == num
+                select s;
+        return a.FirstOrDefault();
+    }
 }

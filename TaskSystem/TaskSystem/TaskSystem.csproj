@@ -67,6 +67,7 @@
     <Content Include="AllAssignment.aspx" />
     <Content Include="Assign.aspx" />
     <Content Include="Check.aspx" />
+    <Content Include="css\admin.css" />
     <Content Include="css\Assignment.css" />
     <Content Include="css\Course_Select.css" />
     <Content Include="css\Default.css" />

@@ -135,5 +135,16 @@ namespace TaskSystem.DataAccess
             return true;
         
         }
+        public Course GetCourseByNum(string number)
+        {
+            DataClassesDataContext da = new DataClassesDataContext();
+            var cou = from s in da.Course
+                      where s.num == number
+                      select s;
+            if (cou.Count() > 0)
+                return cou.First();
+            else
+                return null;
+        }
     }
 }
