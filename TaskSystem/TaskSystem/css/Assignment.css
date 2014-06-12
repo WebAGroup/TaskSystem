@@ -18,6 +18,15 @@
     font-size:16px;
     margin-right:10px;
     margin-bottom:10px;
+	height: 16px;
+}
+
+.AccessorylinkButton
+{
+    float:left;
+    font-size:16px;
+    margin-right:10px;
+    margin-bottom:10px;
 }
 
 .AddButton

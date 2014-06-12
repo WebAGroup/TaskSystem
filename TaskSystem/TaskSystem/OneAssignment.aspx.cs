@@ -19,6 +19,7 @@ namespace TaskSystem
 
         protected void AddProLinkButton_Click(object sender, EventArgs e)
         {
+            CheckAccessoryPanel.Visible = false;
             AProPanel.Visible = true;
         }
 
@@ -44,6 +45,17 @@ namespace TaskSystem
         {
             int problemid = int.Parse(OneProblemGridView.DataKeys[e.RowIndex].Value.ToString());
             ProMan.DeleteProblem(problemid);
+        }
+
+        protected void CheckAccessoryLinkButton_Click(object sender, EventArgs e)
+        {
+            AProPanel.Visible = false;
+            CheckAccessoryPanel.Visible = true;
+        }
+
+        protected void CloseLinkButton_Click(object sender, EventArgs e)
+        {
+            CheckAccessoryPanel.Visible = false;
         }
     }
 }

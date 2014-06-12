@@ -31,6 +31,15 @@ namespace TaskSystem {
         protected global::System.Web.UI.WebControls.GridView OneProblemGridView;
         
         /// <summary>
+        /// CheckAccessoryLinkButton 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CheckAccessoryLinkButton;
+        
+        /// <summary>
         /// AddProLinkButton 控件。
         /// </summary>
         /// <remarks>
@@ -47,6 +56,42 @@ namespace TaskSystem {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinqDataSource LinqDataSource1;
+        
+        /// <summary>
+        /// CheckAccessoryPanel 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel CheckAccessoryPanel;
+        
+        /// <summary>
+        /// AccessoryGridView 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView AccessoryGridView;
+        
+        /// <summary>
+        /// LinqDataSource2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinqDataSource LinqDataSource2;
+        
+        /// <summary>
+        /// CloseLinkButton 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CloseLinkButton;
         
         /// <summary>
         /// AProPanel 控件。

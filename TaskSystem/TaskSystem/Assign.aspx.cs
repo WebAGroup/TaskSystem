@@ -104,7 +104,6 @@ namespace TaskSystem
             Apro.score = float.Parse(AProscoreTextBox.Text);
             Apro.title = AProtitleTextBox.Text;
             Apro.descrip = AProdescriTextBox.Text;
-            Apro.score = 1.0f;
             Apro.assignment = assignment.id;
 
             problems.Add(Apro);

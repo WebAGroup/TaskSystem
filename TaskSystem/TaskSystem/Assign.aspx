@@ -31,7 +31,7 @@
     作业标题：<asp:TextBox ID="assigntitleTextBox" runat="server"></asp:TextBox>
         <br />
         <br />
-    截止日期：<asp:TextBox ID="datelineTextBox" runat="server" TextMode="Date"></asp:TextBox>
+    截止日期：<asp:TextBox ID="datelineTextBox" runat="server"></asp:TextBox>
         <br />
         <br />
     作业说明：<asp:TextBox ID="assigndescriTextBox" runat="server" Height="62px" 

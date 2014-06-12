@@ -29,10 +29,10 @@
         课程名称:<asp:TextBox ID="cournameTextBox" runat="server"></asp:TextBox>
         <br />
         <br />
-        开课时间:<asp:TextBox ID="courstart_timeTextBox" runat="server" TextMode="Date"></asp:TextBox>
+        开课时间:<asp:TextBox ID="courstart_timeTextBox" runat="server"></asp:TextBox>
         <br />
         <br />
-        截课时间:<asp:TextBox ID="courend_timeTextBox" runat="server" TextMode="Date"></asp:TextBox>
+        截课时间:<asp:TextBox ID="courend_timeTextBox" runat="server"></asp:TextBox>
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

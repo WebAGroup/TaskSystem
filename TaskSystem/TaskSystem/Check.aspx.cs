@@ -41,7 +41,7 @@ namespace TaskSystem
                 int problem = int.Parse(Request.QueryString["problem"]);
                 float actualvalue = float.Parse(scoreTextBox.Text);
                 float fullscore = ProMan.GetProblemScore(problem);
-                if (actualvalue <= 0 || actualvalue >= fullscore)
+                if (actualvalue < 0 || actualvalue > fullscore)
                 {
                     scoreLabel1.Visible = false;
                     scoreLabel2.Visible = true;
