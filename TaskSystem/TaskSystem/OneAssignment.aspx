@@ -72,7 +72,7 @@
      <asp:GridView ID="AccessoryGridView" runat="server" AutoGenerateColumns="False" 
         CellPadding="4" DataKeyNames="student,assignment" 
         DataSourceID="LinqDataSource2" ForeColor="#333333" GridLines="None" 
-        Visible="False" AllowPaging="True" style="margin-left: 320px" Width="530px" >
+            AllowPaging="True" style="margin-left: 320px" Width="530px" >
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="student" HeaderText="student" ReadOnly="True" 
