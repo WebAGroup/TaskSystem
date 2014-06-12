@@ -101,6 +101,7 @@ namespace TaskSystem
             Problem Apro = new Problem();
             problems = (List<Problem>)Session["problems"];
 
+            Apro.score = float.Parse(AProscoreTextBox.Text);
             Apro.title = AProtitleTextBox.Text;
             Apro.descrip = AProdescriTextBox.Text;
             Apro.score = 1.0f;
@@ -125,6 +126,7 @@ namespace TaskSystem
             int selectindex = int.Parse(SelectProRadioButtonList.SelectedValue);
             UpdateAProtitleTextBox.Text = problems[selectindex].title;
             UpdateAProdescriTextBox.Text = problems[selectindex].descrip;
+            UpdateAProscoreTextBox.Text = problems[selectindex].score.ToString();
 
         }
 
@@ -159,6 +161,7 @@ namespace TaskSystem
             int selectindex = int.Parse(SelectProRadioButtonList.SelectedValue);
             problems[selectindex].title = UpdateAProtitleTextBox.Text;
             problems[selectindex].descrip = UpdateAProdescriTextBox.Text;
+            problems[selectindex].score = float.Parse(UpdateAProscoreTextBox.Text);
 
             Session["problems"] = problems;
 

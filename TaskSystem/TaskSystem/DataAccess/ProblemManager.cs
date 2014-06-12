@@ -68,6 +68,14 @@ namespace TaskSystem.DataAccess
 
         }
 
+        public float GetProblemScore(int pro_id)    //根据Problem的Id获得分值
+        {
+            DataClassesDataContext da = new DataClassesDataContext();
+            var problem = from p in da.Problem
+                          where p.id == pro_id
+                          select p;
+            return (float)problem.First().score;
+        }
 
         public bool UpdateProblem(Problem pro)      //更新问题
         {

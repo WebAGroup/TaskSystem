@@ -45,6 +45,9 @@ namespace TaskSystem
         protected void reset_Click(object sender, EventArgs e)
         {
             ViewCourses.Value = string.Empty;
+            CourseList = (List<Course>)Session["CourseList"];
+            CourseList.Clear();
+            Session["CourseList"] = CourseList;
         }
 
         protected void submit_Click(object sender, EventArgs e)
@@ -73,6 +76,14 @@ namespace TaskSystem
             }
             //CourseList = (List<Course>)Session["CourseList"];
             CourseList.Clear();
+            CourseList = (List<Course>)Session["CourseList"];
+            if (CourseList != null)
+            {
+                foreach (Course course in CourseList)
+                {
+                    ViewCourses.Value += course.name + "(" + course.teacher + ")   ";
+                }
+            }
         }
 
         //选择老师对应课程后的响应
@@ -80,7 +91,16 @@ namespace TaskSystem
         {
             //SelectedCourses += TeacherCourses.SelectedValue.ToString() + "(" + SelectTeachers.SelectedValue.ToString() + ")    ";
             CourseList = (List<Course>)Session["CourseList"];
-            CourseList.Add(CourseMan.GetOneCourse(SelectTeachers.SelectedItem.Text, TeacherCourses.SelectedValue.ToString()));
+            Course co = CourseMan.GetOneCourse(SelectTeachers.SelectedItem.Text, TeacherCourses.SelectedValue.ToString());
+            List<string> CourseNum = new List<string>();
+            foreach (Course cou in CourseList)
+            {
+                CourseNum.Add(cou.num);
+            }
+            if (!CourseNum.Contains(co.num))
+            {
+                CourseList.Add(co);
+            }
             Session["CourseList"] = CourseList;
 
             foreach (Course course in CourseList)

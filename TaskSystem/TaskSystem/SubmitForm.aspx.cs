@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TaskSystem.DataAccess;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace TaskSystem
 {
@@ -50,6 +51,8 @@ namespace TaskSystem
                     {
                         an = "<p><textarea cols='120' rows='15' name='TA' id='TA" + i + "'>" + AnswerList[i].content + "</textarea></p>";
                         submitFlag = false;
+                        fileTips.Text = "已有附件，无需再添加！";
+                        FileUpload2.Enabled = false;
                     }
 
                     Control ct2 = ParseControl(an);
@@ -110,23 +113,44 @@ namespace TaskSystem
             {
                 AnswerMan.AddAnswer(AnswerList);
                 
-                //string filePath = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
-                string filePath = FileUpload2.PostedFile.FileName;
                 if (accessory == null)
                 {
                     accessory = new Accessory();
                 }
-                accessory.adress = filePath;
-                accessory.assignment = System.Int32.Parse(id);
-                accessory.student = stu.username;
-                AccessoryMan.Create(accessory);
+
+                try
+                {
+                    //获取上传文件的路径
+                    string filepath = FileUpload2.PostedFile.FileName;
+                    //获取后缀名
+                    int filepos = filepath.LastIndexOf(".");
+                    //截取后缀名
+                    String strfilename = filepath.Substring(filepos);
+                    //获取时间
+                    string time1 = System.DateTime.Now.ToString("yyyyMMddHHmmssffff");
+                    //保存到服务器的路径
+                    string serverpath = Server.MapPath("Accessory") + "\\" + time1 + strfilename;
+                    //确定上传文件
+                    FileUpload2.PostedFile.SaveAs(serverpath);
+
+                    accessory.adress = serverpath;
+                    accessory.assignment = System.Int32.Parse(id);
+                    accessory.student = stu.username;
+                    AccessoryMan.Create(accessory);
+                }
+                catch (System.Exception error)
+                {
+                    Response.Write(error.Message.ToString());
+                }
             }
             else
             {
                 AnswerMan.UpdateAnswer(AnswerList);
                 //accessory = AccessoryMan.GetAccessory(stu.username, System.Int32.Parse(id));
             }
-            Response.Redirect("StudentMainForm.aspx");
+
+            //Response.Redirect("StudentMainForm.aspx");
+            Response.Write("<script language=javascript>alert('提交成功！');location='StudentMainForm.aspx'</script>");
         }
 
         protected void submit2_Click(object sender, EventArgs e)
@@ -159,6 +183,8 @@ namespace TaskSystem
                 str += AnswerList[i].content + "\r\n";
             }
 
+            string regexstr = @"<[^>]*>";    //去除所有HTML标签
+            str = Regex.Replace(str, regexstr, string.Empty, RegexOptions.IgnoreCase);
             //写入
             sw.Write(str);
             sw.Close();

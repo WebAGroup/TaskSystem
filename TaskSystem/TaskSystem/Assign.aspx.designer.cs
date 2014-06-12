@@ -166,6 +166,15 @@ namespace TaskSystem {
         protected global::System.Web.UI.WebControls.Panel AProPanel;
         
         /// <summary>
+        /// AProscoreTextBox 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AProscoreTextBox;
+        
+        /// <summary>
         /// AProtitleTextBox 控件。
         /// </summary>
         /// <remarks>
@@ -209,6 +218,15 @@ namespace TaskSystem {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel UpdateAProPanel;
+        
+        /// <summary>
+        /// UpdateAProscoreTextBox 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox UpdateAProscoreTextBox;
         
         /// <summary>
         /// UpdateAProtitleTextBox 控件。

@@ -15,7 +15,7 @@
         AutoGenerateColumns="False" CellPadding="4" 
         DataSourceID="LinqDataSource1" ForeColor="#333333" GridLines="None" style="text-align: left; margin-left: 270px;" 
         DataKeyNames="id" onrowdeleting="OneProblemGridView_RowDeleting" 
-        Width="619px">
+        Width="619px" AllowPaging="True">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="title" HeaderText="标题" 
@@ -60,12 +60,16 @@
     </asp:LinqDataSource>
     <br />
         <asp:Panel ID="AProPanel" runat="server" Visible="False" class="assignFrame">
-            标题：<asp:TextBox ID="AProtitleTextBox" runat="server" Height="29px" TextMode="MultiLine" 
-                Width="263px"></asp:TextBox>
+            <br />
+            分值：<asp:TextBox ID="scoreTextBox" runat="server" Width="58px"></asp:TextBox>
             <br />
             <br />
-            说明：<asp:TextBox ID="AProdescriTextBox" runat="server" Height="68px" TextMode="MultiLine" 
-                Width="262px"></asp:TextBox>
+            标题：<asp:TextBox ID="AProtitleTextBox" runat="server" Height="29px" 
+                TextMode="MultiLine" Width="263px"></asp:TextBox>
+            <br />
+            <br />
+            说明：<asp:TextBox ID="AProdescriTextBox" runat="server" Height="68px" 
+                TextMode="MultiLine" Width="262px"></asp:TextBox>
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;

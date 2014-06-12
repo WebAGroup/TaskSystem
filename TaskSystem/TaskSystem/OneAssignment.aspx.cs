@@ -33,7 +33,7 @@ namespace TaskSystem
             Apro.assignment = int.Parse(Request.QueryString["Assignmentid"].ToString());
             Apro.title = AProtitleTextBox.Text;
             Apro.descrip = AProdescriTextBox.Text;
-            Apro.score = 1.0f;
+            Apro.score = float.Parse(scoreTextBox.Text);
 
             ProMan.create(Apro);
             Response.Redirect("OneAssignment.aspx?Assignmentid=" + Request.QueryString["Assignmentid"] + "&Assignmentnum=" + Request.QueryString["Assignmentnum"]);

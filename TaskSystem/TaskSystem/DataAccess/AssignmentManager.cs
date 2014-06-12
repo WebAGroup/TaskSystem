@@ -59,7 +59,6 @@ public class AssignmentManager {
             ret.Add(n);
         return ret;
     }
-
     public Assignment GetAssignmentByNum(int num)
     {
         DataClassesDataContext da = new DataClassesDataContext();

@@ -65,6 +65,10 @@
         </asp:RadioButtonList>
         <br />
         <asp:Panel ID="AProPanel" runat="server" class="assignFrame" Visible="False">
+            <br />
+            分值：<asp:TextBox ID="AProscoreTextBox" runat="server" Height="20px" Width="57px"></asp:TextBox>
+            <br />
+            <br />
             标题：<asp:TextBox ID="AProtitleTextBox" runat="server" Height="29px" TextMode="MultiLine" 
                 Width="263px"></asp:TextBox>
             <br />
@@ -81,6 +85,11 @@
                 onclick="AProQuitButton_Click" class="DeleteButton"/>
         </asp:Panel>
         <asp:Panel ID="UpdateAProPanel" runat="server" Visible="False" class="assignFrame">
+            <br />
+            分值：<asp:TextBox ID="UpdateAProscoreTextBox" runat="server" Height="20px" 
+                Width="57px"></asp:TextBox>
+            <br />
+            <br />
             标题：<asp:TextBox ID="UpdateAProtitleTextBox" runat="server" Height="29px" TextMode="MultiLine" 
                 Width="263px"></asp:TextBox>
             <br />

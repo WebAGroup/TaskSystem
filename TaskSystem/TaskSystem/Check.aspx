@@ -9,8 +9,10 @@
     <br />
     <br />
     评分：<asp:TextBox ID="scoreTextBox" runat="server" Width="98px"></asp:TextBox>
-    <asp:Label ID="scoreLabel" runat="server" style="color: #FF0000" 
+    (<asp:Label ID="scoreLabel" runat="server"></asp:Label>
+    分)<asp:Label ID="scoreLabel1" runat="server" style="color: #FF0000" 
         Text="给个分可能会好点哦！" Visible="False"></asp:Label>
+    <asp:Label ID="scoreLabel2" runat="server" style="color: #FF0000" Text="这个分不太对哦。" Visible="false" />
     <br />
     <br />
     评语： 

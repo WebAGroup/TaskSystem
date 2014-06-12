@@ -55,6 +55,6 @@
     </p>
     <div class="linkButton">
     <asp:LinkButton ID="AddAssignmentLinkButton" runat="server" 
-            onclick="AddAssignmentLinkButton_Click">添加作业</asp:LinkButton>
+            onclick="AddAssignmentLinkButton_Click" style="text-align: left">添加作业</asp:LinkButton>
     </div>
-</asp:Content>
+    </asp:Content>
