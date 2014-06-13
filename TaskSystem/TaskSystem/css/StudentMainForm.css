@@ -1,17 +1,22 @@
 ﻿body {
 }
 
-#first, #second, #third
-{
-	border:2px solid #760000;
-	padding:20px; 
-	width:410px;
-	text-align:center;
+#first, #second, #third { 
+    padding: 20px;
+    width: 410px;
+    text-align: center;
+    left: 20px;
+    border:1px dashed #000000;
+    background-image: url('../images/bg_W.png'); 
+
 }
 
-#three{
-	position:absolute;
-	left:220px; 
-	top:140px;
-	border:1px dashed #000000;
+#third{
+	float: right;
+    left: -106px;
+    top: -482px;
+}
+
+#Label1 {
+
 }

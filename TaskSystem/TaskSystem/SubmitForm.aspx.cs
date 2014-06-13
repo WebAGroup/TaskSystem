@@ -51,20 +51,18 @@ namespace TaskSystem
                     {
                         an = "<p><textarea cols='120' rows='15' name='TA' id='TA" + i + "'>" + AnswerList[i].content + "</textarea></p>";
                         submitFlag = false;
-                        fileTips.Text = "已有附件，无需再添加！";
-                        FileUpload2.Enabled = false;
                     }
 
                     Control ct2 = ParseControl(an);
                     PlaceHolder1.Controls.Add(ct2);
                 }
 
-                /*加载已有附件
+                //加载已有附件
                 if (accessory != null)
                 {
-                    Request.Files.
+                    fileTips.Text = "已有附件，无需再添加！";
+                    FileUpload2.Enabled = false;
                 }
-                */
             }
             else
             {
@@ -128,8 +126,8 @@ namespace TaskSystem
                     String strfilename = filepath.Substring(filepos);
                     //获取时间
                     string time1 = System.DateTime.Now.ToString("yyyyMMddHHmmssffff");
-                    //保存到服务器的路径
-                    string serverpath = Server.MapPath("Accessory") + "\\" + time1 + strfilename;
+                    //保存到服务器的路径,这是我们网站固定网址
+                    string serverpath = "http://tasksystem.apphb.com/Accessory/" + stu.username +"_" + id + "_" + time1 + strfilename;
                     //确定上传文件
                     FileUpload2.PostedFile.SaveAs(serverpath);
 

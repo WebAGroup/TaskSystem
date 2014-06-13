@@ -19,7 +19,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-<div id="parent">
+<div id="parent">&nbsp;&nbsp;
     <asp:Label ID="Lable1" runat="server" Text="Label">当前系统时间：</asp:Label>
     <asp:Label ID="SystemTime" runat="server" Text="Label"></asp:Label>
     <!--用于显示时间-->

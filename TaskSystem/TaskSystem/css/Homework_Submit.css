@@ -1,16 +1,20 @@
 ﻿body {
 }
 
-.homework
-{
-    padding-left:20px;
-    padding-top:20px;
+.homework {
+    padding-left: 20px;
+    padding-top: 20px;
+    background-image: url('../images/bg_large.jpg');
 }
 
 .header {
     width: 100%;
-    background-color: #99CCFF;
-    height: 35px;
+    background-color: #CCCCCC;
+    height: 25px;
+    color: #FFFFFF;
+    text-decoration: underline;
+    font-size: large;
+    font-weight: bolder;
 }
 
 header_text
