@@ -105,7 +105,8 @@
         </WhereParameters>
     </asp:LinqDataSource>
         <div class="linkButton">
-            <asp:LinkButton ID="CloseLinkButton" runat="server">关闭</asp:LinkButton>
+            <asp:LinkButton ID="CloseLinkButton" runat="server" 
+                onclick="CloseLinkButton_Click">关闭</asp:LinkButton>
         </div>
     </asp:Panel>
     &nbsp;<br />
