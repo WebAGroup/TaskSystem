@@ -80,7 +80,7 @@
 
             <asp:TemplateField HeaderText="文件">
                     <ItemTemplate>
-                      <a href='<%#Eval("adress") %>' target="_blank">下载</a>
+                       <a href='Downloading.aspx?fid=<%#DataBinder.Eval(Container.DataItem,"adress") %>' target="_blank">下载</a>
                     </ItemTemplate>
                 </asp:TemplateField>
 
