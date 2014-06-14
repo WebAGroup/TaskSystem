@@ -8,7 +8,7 @@ using TaskSystem.DataAccess;
 
 namespace TaskSystem
 {
-    public partial class Check : System.Web.UI.Page
+    public partial class Check : LoginValidate
     {
         AnswerManager AnswerMan = new AnswerManager();
         List<Answer> answers = new List<Answer>();

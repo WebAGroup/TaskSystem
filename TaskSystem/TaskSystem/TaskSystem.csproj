@@ -397,6 +397,9 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LoginValidate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="MainFrame.Master.cs">
       <DependentUpon>MainFrame.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

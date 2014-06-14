@@ -8,7 +8,7 @@ using TaskSystem.DataAccess;
 
 namespace TaskSystem
 {
-    public partial class WebForm3 : System.Web.UI.Page
+    public partial class WebForm3 : LoginValidate
     {
         CourseManager CourseMan = new CourseManager();
         List<Course> CourseList = new List<Course>();

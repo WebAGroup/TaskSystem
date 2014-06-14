@@ -8,7 +8,7 @@ using TaskSystem.DataAccess;
 
 namespace TaskSystem
 {
-    public partial class Assign : System.Web.UI.Page
+    public partial class Assign : LoginValidate
     {     
         ProblemManager ProMan = new ProblemManager();
         List<Problem> problems = new List<Problem>();

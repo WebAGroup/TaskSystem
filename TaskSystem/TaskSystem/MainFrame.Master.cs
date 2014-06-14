@@ -16,32 +16,21 @@ namespace TaskSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session.Count == 0)
-            {   
-                Response.Redirect("Login.aspx");
-                //Response.Write("<Script Language=JavaScript>alert('会话已过期，请重新登录！');</Script>");
-            }
-            else
+            foreach (string str in Session.Keys)
             {
-                foreach (string str in Session.Keys)
+                if (str.Equals("student"))
                 {
-                    if (str.Equals("student"))
-                    {
-                        stu = (Student)Session["student"];
-                        welcome.Text = "欢迎" + stu.username;
-                        initTreeView();
-                    }
-                    else if (str.Equals("teacher"))
-                    {
-                        tea = (Teacher)Session["teacher"];
-                        welcome.Text = "欢迎您，" + tea.username;
-                        initTeacherTreeView();
-                    }
+                    stu = (Student)Session["student"];
+                    welcome.Text = "欢迎" + stu.username;
+                    initTreeView();
                 }
-                
+                else if (str.Equals("teacher"))
+                {
+                    tea = (Teacher)Session["teacher"];
+                    welcome.Text = "欢迎您，" + tea.username;
+                    initTeacherTreeView();
+                }
             }
-
-            
         }
 
         protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)

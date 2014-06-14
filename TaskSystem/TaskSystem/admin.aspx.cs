@@ -9,7 +9,7 @@ using System.Web.Security;
 
 namespace TaskSystem
 {
-    public partial class admin : System.Web.UI.Page
+    public partial class admin : LoginValidate
     {
         protected void Page_Load(object sender, EventArgs e)
         {

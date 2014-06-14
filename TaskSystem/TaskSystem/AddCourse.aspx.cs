@@ -8,7 +8,7 @@ using TaskSystem.DataAccess;
 
 namespace TaskSystem
 {
-    public partial class AddCourse : System.Web.UI.Page
+    public partial class AddCourse : LoginValidate
     {
         CourseManager CourMan = new CourseManager();
        

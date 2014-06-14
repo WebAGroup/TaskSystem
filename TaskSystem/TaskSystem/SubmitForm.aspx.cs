@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 
 namespace TaskSystem
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class WebForm1 : LoginValidate
     {
         List<Answer> AnswerList = new List<Answer>();
         List<Problem> ProblemList = new List<Problem>();
@@ -127,11 +127,12 @@ namespace TaskSystem
                     //获取时间
                     string time1 = System.DateTime.Now.ToString("yyyyMMddHHmmssffff");
                     //保存到服务器的路径,这是我们网站固定网址
-                    string serverpath = "http://tasksystem.apphb.com/Accessory/" + stu.username +"_" + id + "_" + time1 + strfilename;
+                    string serverpath = Server.MapPath("Accessory") + "\\" + time1 + strfilename;
                     //确定上传文件
                     FileUpload2.PostedFile.SaveAs(serverpath);
 
-                    accessory.adress = serverpath;
+                    string DBFilePath = "http://tasksystem.apphb.com/Accessory/" + stu.username + "_" + id + "_" + time1 + strfilename;
+                    accessory.adress = DBFilePath;
                     accessory.assignment = System.Int32.Parse(id);
                     accessory.student = stu.username;
                     AccessoryMan.Create(accessory);

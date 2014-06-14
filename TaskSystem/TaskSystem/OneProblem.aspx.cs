@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TaskSystem
 {
-    public partial class OneAssignment : System.Web.UI.Page
+    public partial class OneAssignment : LoginValidate
     {
         protected void Page_Load(object sender, EventArgs e)
         {

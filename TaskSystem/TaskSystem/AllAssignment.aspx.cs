@@ -8,7 +8,7 @@ using TaskSystem.DataAccess;
 
 namespace TaskSystem
 {
-    public partial class AllAssignment : System.Web.UI.Page
+    public partial class AllAssignment : LoginValidate
     {
         Teacher tea = new Teacher();
         Course course = new Course();

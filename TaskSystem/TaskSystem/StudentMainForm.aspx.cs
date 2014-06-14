@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace TaskSystem
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class WebForm2 : LoginValidate
     {
         Student stu = new Student();
         protected ArrayList myArray = new ArrayList();
