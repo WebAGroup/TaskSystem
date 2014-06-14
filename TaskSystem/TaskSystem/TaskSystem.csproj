@@ -77,7 +77,6 @@
     <Content Include="css\StudentMainForm.css" />
     <Content Include="css\User_Login.css" />
     <Content Include="css\xtree.css" />
-    <Content Include="Downloading.aspx" />
     <Content Include="images\Background_0.png" />
     <Content Include="images\bg.jpg" />
     <Content Include="images\flash2500.swf" />
@@ -390,13 +389,6 @@
     </Compile>
     <Compile Include="DataAccess\TeacherManager.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Downloading.aspx.cs">
-      <DependentUpon>Downloading.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Downloading.aspx.designer.cs">
-      <DependentUpon>Downloading.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
