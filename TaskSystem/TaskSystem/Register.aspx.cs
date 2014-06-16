@@ -39,6 +39,7 @@ namespace TaskSystem
                         //stu.grade = string.Empty;
                         StudentMan.AddStudent(stu);
                         Session["student"] = stu;
+                        Session["UserRole"] = "Teacher";
                         Response.Redirect("StudentMainForm.aspx");
                     }
 
@@ -52,6 +53,7 @@ namespace TaskSystem
 
                         TeacherMan.AddTeacher(tea);
                         Session["teacher"] = tea;
+                        Session["UserRole"] = "Teacher";
                         Response.Redirect("AddCourse.aspx");
                     }
 

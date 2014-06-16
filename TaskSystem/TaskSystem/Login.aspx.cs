@@ -42,6 +42,7 @@ namespace TaskSystem
                                     }
                                     else
                                     {
+                                        Session["UserRole"] = "Student";
                                         Session["student"] = StudentMan.GetStudent(UserName);
                                         Response.Redirect("StudentMainForm.aspx");
                                     }
@@ -55,6 +56,7 @@ namespace TaskSystem
                                     }
                                     else
                                     {
+                                        Session["UserRole"] = "Teacher";
                                         Session["teacher"] = TeacherMan.GetTeacher(UserName);
                                         Response.Redirect("AddCourse.aspx");
                                     }
@@ -68,6 +70,7 @@ namespace TaskSystem
                                     }
                                     else
                                     {
+                                        Session["UserRole"] = "Admin";
                                         Session["admin"] = AdminMan.GetAdmin(UserName);
                                         Response.Redirect("admin.aspx?user=" + UserName);
                                     }

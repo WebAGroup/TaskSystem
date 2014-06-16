@@ -17,6 +17,12 @@ namespace TaskSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserRole"] == null || Session["UserRole"].ToString() != "Teacher")
+            {
+                Response.Write("<Script language='javascript'>alert('您无权访问此页面，请重新登录！');window.history.go(-1);</Script>");
+                return;
+            }
+
             //获取answer信息
             string student = Request.QueryString["student"];
             int problem = int.Parse(Request.QueryString["problem"]);

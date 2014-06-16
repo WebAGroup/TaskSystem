@@ -49,9 +49,8 @@
             HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" 
             BackColor="#99CCFF" BorderColor="#99CCFF" BorderStyle="Double" 
             Font-Bold="False" Font-Italic="False" />
-        <ParentNodeStyle Font-Bold="False" BackColor="#3399FF" ForeColor="White" />
-        <RootNodeStyle Font-Size="Larger" Font-Bold="True" ForeColor="White" 
-            BackColor="#3399FF" />
+        <ParentNodeStyle Font-Bold="False" />
+        <RootNodeStyle Font-Size="X-Large" Font-Bold="True" />
         <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" 
             HorizontalPadding="0px" VerticalPadding="0px" />
     </asp:TreeView>
